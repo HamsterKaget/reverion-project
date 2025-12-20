@@ -1,4 +1,9 @@
 import './bootstrap';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 // Countdown Timer for Beta Launch
 document.addEventListener('DOMContentLoaded', function() {
@@ -88,4 +93,108 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize Flowbite components
 document.addEventListener('DOMContentLoaded', function() {
     // Flowbite will auto-initialize, but we can add custom initialization here if needed
+});
+
+// GSAP Scroll Animations for Sections
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('.section-animate');
+    
+    sections.forEach((section) => {
+        gsap.fromTo(
+            section,
+            {
+                opacity: 0,
+                y: 30
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    });
+
+    // Animate feature cards with stagger
+    const featureCards = document.querySelectorAll('#features .backdrop-blur-xl');
+    if (featureCards.length > 0) {
+        gsap.fromTo(
+            featureCards,
+            {
+                opacity: 0,
+                y: 30,
+                scale: 0.95
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.5,
+                ease: 'power2.out',
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: '#features',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    }
+
+    // Animate top-up cards with stagger
+    const topUpCards = document.querySelectorAll('#top-up .backdrop-blur-xl');
+    if (topUpCards.length > 0) {
+        gsap.fromTo(
+            topUpCards,
+            {
+                opacity: 0,
+                y: 30,
+                scale: 0.95
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.5,
+                ease: 'power2.out',
+                stagger: 0.15,
+                scrollTrigger: {
+                    trigger: '#top-up',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    }
+
+    // Animate how-to-play steps
+    const steps = document.querySelectorAll('#how-to-play .flex');
+    if (steps.length > 0) {
+        gsap.fromTo(
+            steps,
+            {
+                opacity: 0,
+                x: -30
+            },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 0.6,
+                ease: 'power2.out',
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: '#how-to-play',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    }
 });

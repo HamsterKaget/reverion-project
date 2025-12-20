@@ -1,6 +1,6 @@
 <!-- Main Navbar -->
-<div class="sticky top-4 z-50 flex justify-center px-4 sm:px-6 lg:px-8 py-5">
-    <nav class="w-full max-w-6xl backdrop-blur-xl bg-gradient-to-r from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/20 rounded-full px-8 py-4 shadow-2xl shadow-red-900/20">
+<div class="fixed top-4 z-50 flex justify-center py-3 w-screen">
+    <nav class="w-full max-w-7xl backdrop-blur-xl from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/20 rounded-full px-8 py-4 shadow-2xl shadow-red-900/20">
         <div class="flex items-center justify-between">
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
@@ -13,15 +13,15 @@
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-2 flex-1 justify-center">
                 <a href="{{ route('home') }}" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10 {{ request()->routeIs('home') && !request()->has('hash') ? 'text-red-400 bg-red-500/10' : '' }}" data-route="home">Home</a>
-                <a href="#download" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10" data-hash="download">Download</a>
-                <a href="#leaderboard" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10" data-hash="leaderboard">Leaderboard</a>
-                <a href="#topup" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10" data-hash="topup">Top Up</a>
-                <a href="#login" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10" data-hash="login">Login</a>
+                <a href="{{ route('download.index') }}" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10 {{ request()->routeIs('download.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-hash="download">Download</a>
+                {{-- <a href="#leaderboard" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10" data-hash="leaderboard">Leaderboard</a> --}}
+                <a href="{{ route('topup.index') }}" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10 {{ request()->routeIs('topup.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-route="topup">Top Up</a>
+                <a href="#login" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10 desktop-auth-link" data-modal-show="login-modal" data-hash="login">Login</a>
             </div>
 
             <!-- Register Button -->
             <div class="hidden md:block">
-                <a href="#register" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-2.5 rounded-full text-base font-semibold transition-all duration-200 shadow-lg shadow-red-500/30 flex items-center space-x-1 group">
+                <a href="#register" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-2.5 rounded-full text-base font-semibold transition-all duration-200 shadow-lg shadow-red-500/30 flex items-center space-x-1 group desktop-auth-link" data-modal-show="register-modal">
                     <span>Register</span>
                     <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -58,37 +58,53 @@
             </div>
             <div class="flex-1 flex flex-col space-y-3">
                 <a href="{{ route('home') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 {{ request()->routeIs('home') && !request()->has('hash') ? 'text-red-400 bg-red-500/10' : '' }}" data-drawer-hide="mobile-menu" data-route="home">Home</a>
-                <a href="#download" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu" data-hash="download">Download</a>
-                <a href="#leaderboard" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu" data-hash="leaderboard">Leaderboard</a>
-                <a href="#topup" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu" data-hash="topup">Top Up</a>
-                <a href="#login" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu" data-hash="login">Login</a>
-                <a href="#register" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 text-center shadow-lg shadow-red-500/30 mt-4" data-drawer-hide="mobile-menu">Register</a>
+                <a href="{{ route('download.index') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 {{ request()->routeIs('download.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-drawer-hide="mobile-menu" data-hash="download">Download</a>
+                {{-- <a href="#leaderboard" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu" data-hash="leaderboard">Leaderboard</a> --}}
+                <a href="{{ route('topup.index') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 {{ request()->routeIs('topup.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-drawer-hide="mobile-menu" data-route="topup">Top Up</a>
+                <a href="{{ route('login') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu">Login</a>
+                <a href="{{ route('register') }}" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 text-center shadow-lg shadow-red-500/30 mt-4" data-drawer-hide="mobile-menu">Register</a>
             </div>
         </div>
     </div>
 
 <script>
-    // Active state untuk hash links
-    function updateActiveNav() {
-        const hash = window.location.hash.substring(1);
-        const allLinks = document.querySelectorAll('.nav-link');
+    // Handle desktop auth links (open modal instead of navigating)
+    document.addEventListener('DOMContentLoaded', function() {
+        const desktopAuthLinks = document.querySelectorAll('.desktop-auth-link');
 
-        allLinks.forEach(link => {
-            link.classList.remove('text-red-400', 'bg-red-500/10');
-
-            // Cek untuk route home
-            if (link.dataset.route === 'home' && !hash) {
-                link.classList.add('text-red-400', 'bg-red-500/10');
-            }
-
-            // Cek untuk hash links
-            if (link.dataset.hash && link.dataset.hash === hash) {
-                link.classList.add('text-red-400', 'bg-red-500/10');
-            }
+        desktopAuthLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Only prevent default on desktop (md and above)
+                if (window.innerWidth >= 768) {
+                    e.preventDefault();
+                    const modalId = this.getAttribute('data-modal-show');
+                    if (modalId) {
+                        // Mark that modal was triggered by user
+                        sessionStorage.setItem('authModalTriggered', 'true');
+                        // Update hash for consistency
+                        if (this.getAttribute('data-hash')) {
+                            window.location.hash = this.getAttribute('data-hash');
+                        }
+                        // Show modal directly - try multiple ways to ensure it works
+                        const showModalFunc = window.showModal || window.showAuthModal;
+                        if (showModalFunc) {
+                            showModalFunc(modalId);
+                        } else {
+                            // Fallback: wait a bit for auth-modals script to load
+                            setTimeout(() => {
+                                const showModalFunc2 = window.showModal || window.showAuthModal;
+                                if (showModalFunc2) {
+                                    showModalFunc2(modalId);
+                                } else {
+                                    // Last resort: trigger click on element with data-modal-show
+                                    console.error('showModal function not found');
+                                }
+                            }, 200);
+                        }
+                    }
+                }
+                // On mobile, let the link work normally (navigate to page)
+            });
         });
-    }
-
-    // Update saat load dan hash change
-    updateActiveNav();
-    window.addEventListener('hashchange', updateActiveNav);
+    });
 </script>

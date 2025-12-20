@@ -7,439 +7,635 @@
 
 @section('body')
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden rpg-pattern">
-        <!-- Enhanced Red Background with Multiple Layers -->
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-red-950/30 to-black"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-red-950/20 via-transparent to-red-950/20"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,38,38,0.15),transparent_70%)]"></div>
-
-        <!-- Enhanced Decorative Red Elements -->
-        <div class="absolute top-20 left-10 w-96 h-96 bg-red-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div class="absolute top-40 right-10 w-96 h-96 bg-red-800 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-8 left-1/2 w-96 h-96 bg-red-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
-        <div class="absolute top-1/2 left-1/4 w-72 h-72 bg-red-900 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob animation-delay-1000"></div>
-        <div class="absolute bottom-20 right-1/4 w-80 h-80 bg-red-600 rounded-full mix-blend-multiply filter blur-2xl opacity-25 animate-blob animation-delay-3000"></div>
-
-        <!-- Floating Dragon Image -->
-        <div class="absolute top-10 right-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 opacity-20 md:opacity-30 floating-dragon">
-            <img src="{{ asset('assets/dragon.png') }}" alt="Dragon" class="w-full h-full object-contain">
+    <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Carousel -->
+        <div class="absolute inset-0 w-full h-full">
+            <div class="hero-bg-slide hero-bg-slide-active" style="background-image: url('{{ asset('assets/bg-1.jpeg') }}');"></div>
+            <div class="hero-bg-slide" style="background-image: url('{{ asset('assets/bg-2.jpeg') }}');"></div>
+            <div class="hero-bg-slide" style="background-image: url('{{ asset('assets/bg-3.jpeg') }}');"></div>
         </div>
 
-        <!-- Floating Player Image -->
-        <div class="absolute bottom-20 left-10 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 opacity-15 md:opacity-25 floating-player">
-            <img src="{{ asset('assets/dragon-nest-player.png') }}" alt="Dragon Nest Player" class="w-full h-full object-contain">
-        </div>
+        <!-- Dark Overlay dengan opacity 80 -->
+        <div class="absolute inset-0 bg-black/80 z-10"></div>
 
-        <!-- Red Glow Particles Effect -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute top-1/4 left-1/3 w-2 h-2 bg-red-500 rounded-full animate-pulse opacity-60"></div>
-            <div class="absolute top-1/3 right-1/4 w-3 h-3 bg-red-600 rounded-full animate-pulse opacity-50 animation-delay-500"></div>
-            <div class="absolute bottom-1/4 left-1/4 w-2 h-2 bg-red-400 rounded-full animate-pulse opacity-70 animation-delay-1000"></div>
-            <div class="absolute bottom-1/3 right-1/3 w-2 h-2 bg-red-500 rounded-full animate-pulse opacity-60 animation-delay-1500"></div>
-        </div>
+        <!-- Red Accent Overlay untuk efek dual tone -->
+        <div class="absolute inset-0 bg-gradient-to-br from-red-950/20 via-transparent to-black/40 z-10"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(220,38,38,0.15),transparent_70%)] z-10"></div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <!-- Logo -->
-            <div class="flex justify-center mb-8">
-                <div class="relative">
-                    <div class="absolute inset-0 bg-red-600 rounded-2xl blur-2xl opacity-50 animate-pulse"></div>
-                    <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion Logo" class="relative w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain transform hover:scale-105 transition-transform duration-300 glow-red">
+        <!-- Content Container -->
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-20 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="flex flex-col">
+                    <h1 class="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-left">
+                        <span class="text-white">START YOUR OWN</span>
+                        <br>
+                        <span class="text-red-500">JOURNEY ON REVERION</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed text-left">
+                        Epic fantasy artwork of a hero standing before a vast realm. Enter a realm where every decision shapes your story. Battle fierce enemies, form alliances, and uncover mysteries hidden across vast kingdoms.
+                    </p>
+                    <div class="flex justify-start">
+                        <a href="#register" class="desktop-auth-link inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 hover:shadow-red-900/70" data-modal-show="register-modal">
+                            Begin Your Quest
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Title -->
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-                <span class="gradient-text">Dragon Nest</span>
-                <br>
-                <span class="text-white">Private Server</span>
-            </h1>
+                <!-- Right Content - Feature Cards dengan Glassmorphism -->
+                <div class="space-y-6 py-12">
+                    <!-- Video Thumbnail Card -->
+                    <div class="backdrop-blur-xl bg-black/30 border border-red-500/20 rounded-2xl overflow-hidden shadow-2xl shadow-red-900/20 hover:border-red-500/40 transition-all duration-300 mt-4">
+                        <div class="relative aspect-video bg-gray-900/50">
+                            <img src="{{ asset('assets/bg-1.jpeg') }}" alt="Game Preview" class="w-full h-full object-cover opacity-60">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <button class="w-20 h-20 bg-red-600/80 hover:bg-red-600 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 transform hover:scale-110 shadow-lg shadow-red-900/50">
+                                    <svg class="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Description -->
-            <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-                Experience the ultimate Dragon Nest adventure. Join thousands of players in an epic journey filled with action, strategy, and endless possibilities. Beta launch coming soon!
-            </p>
+                    <!-- Feature Cards Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- Epic Quests Card -->
+                        <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-xl font-bold text-white mb-2">Epic Quests</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">Embark on story-driven journeys filled with danger and glory.</p>
+                        </div>
 
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#register" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 hover:shadow-red-900/70">
-                    Register Now
-                </a>
-                <a href="#download" class="bg-gray-800 hover:bg-gray-700 border-2 border-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:border-red-500">
-                    Download Client
-                </a>
+                        <!-- Next-Gen Graphics Card -->
+                        <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-xl font-bold text-white mb-2">Next-Gen Graphics</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">Dive into visuals that blur the line between reality and fantasy.</p>
+                        </div>
+
+                        <!-- Endless Adventure Card -->
+                        <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                            <h3 class="text-xl font-bold text-white mb-2">Endless Adventure</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">From campaign to PvP, every game mode brings new challenges.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+        <div class="absolute bottom-10 lg:bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
             <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
         </div>
     </section>
 
-    <!-- Counter Launch Section -->
-    <section class="py-20 bg-gray-900 border-y border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-white">
-                <span class="gradient-text">Beta Launch Soon</span>
-            </h2>
-            <p class="text-gray-400 mb-8 text-lg">Get ready for an epic adventure starting on December 6th at 00:00</p>
+    <!-- About Server & Download Client Section -->
+    <section id="about-download" class="section-animate relative py-16 lg:py-24 rpg-pattern overflow-hidden">
+        <!-- Decorative Dragon Background -->
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 opacity-10 pointer-events-none hidden lg:block">
+            <img src="{{ asset('assets/dragon.png') }}" alt="Dragon" class="w-full h-full object-contain floating-dragon">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: About Server -->
+                <div class="space-y-6 relative">
+                    <!-- Decorative Element -->
+                    <div class="absolute -left-8 top-0 w-24 h-24 opacity-10 pointer-events-none hidden lg:block">
+                        <img src="{{ asset('assets/dragon-nest-player.png') }}" alt="Player" class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4 relative z-10">
+                        Welcome to <span class="text-red-500">Reverion</span>
+                    </h2>
+                    <p class="text-lg text-gray-300 leading-relaxed relative z-10">
+                        Experience the ultimate Dragon Nest private server with enhanced features, balanced gameplay, and an active community. Join thousands of players in this epic adventure.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Enhanced Gameplay</h3>
+                                <p class="text-gray-300">Custom rates, balanced PvP, and exclusive content</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Active Community</h3>
+                                <p class="text-gray-300">Join a thriving community of dedicated players</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Secure & Stable</h3>
+                                <p class="text-gray-300">24/7 uptime with regular updates and maintenance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div id="countdown" class="flex flex-wrap justify-center gap-4 sm:gap-8">
-                <div class="bg-gray-800 border border-red-600 rounded-lg p-6 min-w-[80px] sm:min-w-[100px]">
-                    <div data-days class="text-4xl sm:text-5xl font-bold text-red-500 mb-2">00</div>
-                    <div class="text-sm text-gray-400 uppercase">Days</div>
-                </div>
-                <div class="bg-gray-800 border border-red-600 rounded-lg p-6 min-w-[80px] sm:min-w-[100px]">
-                    <div data-hours class="text-4xl sm:text-5xl font-bold text-red-500 mb-2">00</div>
-                    <div class="text-sm text-gray-400 uppercase">Hours</div>
-                </div>
-                <div class="bg-gray-800 border border-red-600 rounded-lg p-6 min-w-[80px] sm:min-w-[100px]">
-                    <div data-minutes class="text-4xl sm:text-5xl font-bold text-red-500 mb-2">00</div>
-                    <div class="text-sm text-gray-400 uppercase">Minutes</div>
-                </div>
-                <div class="bg-gray-800 border border-red-600 rounded-lg p-6 min-w-[80px] sm:min-w-[100px]">
-                    <div data-seconds class="text-4xl sm:text-5xl font-bold text-red-500 mb-2">00</div>
-                    <div class="text-sm text-gray-400 uppercase">Seconds</div>
+                <!-- Right: Download Client (Highlight) -->
+                <div class="relative">
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-black/40 via-red-950/30 to-black/40 border-2 border-red-500/40 rounded-2xl p-8 shadow-2xl shadow-red-900/30 hover:border-red-500/60 hover:shadow-red-900/50 transition-all duration-300 relative overflow-hidden">
+                        <!-- Decorative Background Image -->
+                        <div class="absolute inset-0 opacity-5 pointer-events-none">
+                            <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion" class="w-full h-full object-cover">
+                        </div>
+                        <!-- Glow Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-transparent blur-xl opacity-50"></div>
+
+                        <div class="relative z-10">
+                            <div class="text-center mb-6">
+                                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-red-600 to-red-700 mb-4 shadow-lg shadow-red-900/50">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-3xl font-bold text-white mb-2">Download Client</h3>
+                                <p class="text-gray-300">Get started in minutes with our optimized client</p>
+                            </div>
+
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-center justify-between p-4 backdrop-blur-sm bg-black/30 rounded-lg border border-red-500/20">
+                                    <div class="flex items-center gap-3">
+                                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                        <span class="text-white font-medium">Client Version</span>
+                                    </div>
+                                    <span class="text-red-500 font-semibold">v2.0.1</span>
+                                </div>
+                                <div class="flex items-center justify-between p-4 backdrop-blur-sm bg-black/30 rounded-lg border border-red-500/20">
+                                    <div class="flex items-center gap-3">
+                                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                                        </svg>
+                                        <span class="text-white font-medium">File Size</span>
+                                    </div>
+                                    <span class="text-gray-300">~2.5 GB</span>
+                                </div>
+                            </div>
+
+                            <a href="#download" class="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white text-center py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 hover:shadow-red-900/70">
+                                Download Now
+                                <svg class="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Client Section -->
-    <section id="download" class="py-20 bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-white">
-                    Download <span class="gradient-text">Client</span>
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    Get the latest game client and start your adventure. Available for Windows platform.
-                </p>
-            </div>
-
-            <div class="max-w-md mx-auto">
-                <div class="rpg-card text-center">
-                    <div class="mb-6">
-                        <svg class="w-20 h-20 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Game Client v1.0</h3>
-                    <p class="text-gray-400 mb-6">Latest version with all features and optimizations</p>
-                    <div class="space-y-3">
-                        <a href="#" class="block w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                            Download for Windows
-                        </a>
-                        <p class="text-sm text-gray-500">File size: ~2.5 GB</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Features Section -->
+    <section id="features" class="section-animate relative py-16 lg:py-24 bg-gray-900/50 overflow-hidden">
+        <!-- Decorative Background Elements -->
+        <div class="absolute left-0 top-0 w-64 h-64 opacity-5 pointer-events-none hidden lg:block">
+            <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion" class="w-full h-full object-contain">
         </div>
-    </section>
-
-    <!-- Feature Server Section -->
-    <section id="features" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="absolute right-0 bottom-0 w-64 h-64 opacity-5 pointer-events-none hidden lg:block">
+            <img src="{{ asset('assets/reverion_blue.jpeg') }}" alt="Reverion" class="w-full h-full object-contain">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-white">
-                    Server <span class="gradient-text">Features</span>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+                    Server <span class="text-red-500">Features</span>
                 </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    Discover what makes our server unique and exciting
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Discover what makes Reverion the ultimate Dragon Nest experience
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="rpg-card">
-                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Feature 1 -->
+                <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">High Rate Experience</h3>
-                    <p class="text-gray-400">Enjoy increased EXP and drop rates for faster progression and more exciting gameplay.</p>
+                    <h3 class="text-xl font-bold text-white mb-2">Custom Rates</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Optimized experience rates for faster progression and balanced gameplay</p>
                 </div>
 
-                <div class="rpg-card">
-                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Active Community</h3>
-                    <p class="text-gray-400">Join a vibrant community of players, participate in events, and make new friends.</p>
-                </div>
-
-                <div class="rpg-card">
-                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Feature 2 -->
+                <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Secure & Stable</h3>
-                    <p class="text-gray-400">Experience stable gameplay with advanced security measures and regular updates.</p>
+                    <h3 class="text-xl font-bold text-white mb-2">Balanced PvP</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Fair and competitive PvP system with regular balance updates</p>
                 </div>
 
-                <div class="rpg-card">
-                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <!-- Feature 3 -->
+                <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Easy Top Up</h3>
-                    <p class="text-gray-400">Convenient and secure top-up system with multiple payment methods available.</p>
+                    <h3 class="text-xl font-bold text-white mb-2">Exclusive Content</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Unique events, items, and features exclusive to Reverion</p>
                 </div>
 
-                <div class="rpg-card">
-                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Custom Events</h3>
-                    <p class="text-gray-400">Participate in exclusive events, competitions, and special rewards throughout the year.</p>
-                </div>
-
-                <div class="rpg-card">
-                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">24/7 Support</h3>
-                    <p class="text-gray-400">Get help anytime with our dedicated support team ready to assist you around the clock.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Counter Stats Section -->
-    <section class="py-20 bg-gray-800 border-y border-gray-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="mb-4">
-                        <svg class="w-16 h-16 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <div data-counter="12500" class="counter-number mb-2">0</div>
-                    <h3 class="text-xl font-semibold text-gray-300">Total Registered</h3>
-                </div>
-
-                <div class="text-center">
-                    <div class="mb-4">
-                        <svg class="w-16 h-16 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Feature 4 -->
+                <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <div data-counter="3420" class="counter-number mb-2">0</div>
-                    <h3 class="text-xl font-semibold text-gray-300">Players Today</h3>
+                    <h3 class="text-xl font-bold text-white mb-2">24/7 Support</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Round-the-clock support from our dedicated team</p>
                 </div>
 
-                <div class="text-center">
-                    <div class="mb-4">
-                        <svg class="w-16 h-16 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                <!-- Feature 5 -->
+                <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
                         </svg>
                     </div>
-                    <div data-counter="8920" class="counter-number mb-2">0</div>
-                    <h3 class="text-xl font-semibold text-gray-300">Players This Month</h3>
+                    <h3 class="text-xl font-bold text-white mb-2">Regular Updates</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Frequent content updates and bug fixes to keep the game fresh</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Guild System</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Form alliances and compete in guild wars and events</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-gray-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- How to Play Section -->
+    <section id="how-to-play" class="section-animate relative py-16 lg:py-24 rpg-pattern overflow-hidden">
+        <!-- Decorative Player Image -->
+        <div class="absolute left-0 top-1/2 -translate-y-1/2 w-80 h-80 opacity-10 pointer-events-none hidden lg:block">
+            <img src="{{ asset('assets/dragon-nest-player.png') }}" alt="Dragon Nest Player" class="w-full h-full object-contain floating-player">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-white">
-                    Frequently Asked <span class="gradient-text">Questions</span>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+                    How to <span class="text-red-500">Play</span>
                 </h2>
-                <p class="text-gray-400">
-                    Find answers to common questions about our server
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Get started in just a few simple steps
                 </p>
             </div>
 
-            <div class="space-y-4">
-                <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-gray-800 text-white" data-inactive-classes="bg-gray-800 text-gray-400">
-                    <h2 id="accordion-flush-heading-1">
-                        <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-medium text-left border-b border-gray-700 hover:bg-gray-800" data-accordion-target="#accordion-flush-body-1" aria-expanded="false" aria-controls="accordion-flush-body-1">
-                            <span>How do I register for the server?</span>
-                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </h2>
-                    <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
-                        <div class="py-5 px-5 border-b border-gray-700 bg-gray-800">
-                            <p class="mb-2 text-gray-300">You can register by clicking the "Register Now" button in the hero section or navigation menu. Simply fill out the registration form with your desired username, email, and password.</p>
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center text-2xl font-bold text-white shadow-lg shadow-red-900/50">
+                            1
+                        </div>
+                        <div class="flex-1 backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20">
+                            <h3 class="text-2xl font-bold text-white mb-2">Download Client</h3>
+                            <p class="text-gray-300 leading-relaxed">Download and install the Reverion client from our official download page. The installation process is quick and straightforward.</p>
                         </div>
                     </div>
 
-                    <h2 id="accordion-flush-heading-2">
-                        <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-medium text-left border-b border-gray-700 hover:bg-gray-800" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
-                            <span>What are the server rates?</span>
-                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </h2>
-                    <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
-                        <div class="py-5 px-5 border-b border-gray-700 bg-gray-800">
-                            <p class="mb-2 text-gray-300">Our server features high rates for EXP (10x), drop rates (5x), and gold (3x) to provide a more exciting and faster-paced gameplay experience.</p>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center text-2xl font-bold text-white shadow-lg shadow-red-900/50">
+                            2
+                        </div>
+                        <div class="flex-1 backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20">
+                            <h3 class="text-2xl font-bold text-white mb-2">Create Account</h3>
+                            <p class="text-gray-300 leading-relaxed">Register your account on our website. Choose a unique username and secure password to protect your character.</p>
                         </div>
                     </div>
 
-                    <h2 id="accordion-flush-heading-3">
-                        <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-medium text-left border-b border-gray-700 hover:bg-gray-800" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
-                            <span>How do I top up my account?</span>
-                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </h2>
-                    <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
-                        <div class="py-5 px-5 border-b border-gray-700 bg-gray-800">
-                            <p class="mb-2 text-gray-300">You can top up your account through our secure payment system. Visit the Top Up section in your account dashboard and choose from various payment methods including credit cards, e-wallets, and bank transfers.</p>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center text-2xl font-bold text-white shadow-lg shadow-red-900/50">
+                            3
+                        </div>
+                        <div class="flex-1 backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20">
+                            <h3 class="text-2xl font-bold text-white mb-2">Launch Game</h3>
+                            <p class="text-gray-300 leading-relaxed">Launch the client and log in with your credentials. Complete the character creation process and choose your class.</p>
                         </div>
                     </div>
 
-                    <h2 id="accordion-flush-heading-4">
-                        <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-medium text-left border-b border-gray-700 hover:bg-gray-800" data-accordion-target="#accordion-flush-body-4" aria-expanded="false" aria-controls="accordion-flush-body-4">
-                            <span>When will the beta launch?</span>
-                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </h2>
-                    <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
-                        <div class="py-5 px-5 border-b border-gray-700 bg-gray-800">
-                            <p class="mb-2 text-gray-300">The beta launch is scheduled for December 6th at 00:00. Check the countdown timer on our homepage for the exact time remaining until launch.</p>
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center text-2xl font-bold text-white shadow-lg shadow-red-900/50">
+                            4
                         </div>
-                    </div>
-
-                    <h2 id="accordion-flush-heading-5">
-                        <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-medium text-left border-b border-gray-700 hover:bg-gray-800" data-accordion-target="#accordion-flush-body-5" aria-expanded="false" aria-controls="accordion-flush-body-5">
-                            <span>Is the server free to play?</span>
-                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </h2>
-                    <div id="accordion-flush-body-5" class="hidden" aria-labelledby="accordion-flush-heading-5">
-                        <div class="py-5 px-5 bg-gray-800">
-                            <p class="mb-2 text-gray-300">Yes, the server is completely free to play! You can enjoy all the core features without any cost. Top-ups are optional and provide additional convenience items and cosmetics.</p>
+                        <div class="flex-1 backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20">
+                            <h3 class="text-2xl font-bold text-white mb-2">Start Your Adventure</h3>
+                            <p class="text-gray-300 leading-relaxed">Begin your journey in the world of Dragon Nest. Complete quests, level up, and join other players in epic battles!</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Up Preview Section -->
+    <section id="top-up" class="section-animate relative py-16 lg:py-24 bg-gray-900/50 overflow-hidden">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+                    Top Up <span class="text-red-500">Preview</span>
+                </h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Enhance your gameplay with our top-up packages
+                </p>
+            </div>
+
+            <!-- Packages Grid - Maksimal 3 card per row -->
+            <div class="space-y-8">
+                <!-- Row 1: bag-mk0, bag-mk1, bag-mk2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Package 1: bag-mk0 -->
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-center mb-4">
+                            <div class="flex justify-center mb-4">
+                                <img src="{{ asset('assets/rpg/bag-mk0.png') }}" alt="Bag MK0" class="w-24 h-24 object-contain">
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Bag MK0</h3>
+                            <p class="text-3xl font-bold text-red-500 mb-4">$1.99</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-left">
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>10 Gold Ingot</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>100 Silver Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                        </ul>
+                        <a href="{{ route('topup.index') }}" class="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 text-center">
+                            Purchase Now
+                        </a>
+                    </div>
+
+                    <!-- Package 2: bag-mk1 -->
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-center mb-4">
+                            <div class="flex justify-center mb-4">
+                                <img src="{{ asset('assets/rpg/bag-mk1.png') }}" alt="Bag MK1" class="w-24 h-24 object-contain">
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Bag MK1</h3>
+                            <p class="text-3xl font-bold text-red-500 mb-4">$4.99</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-left">
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>50 Gold Ingot</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>1000 Silver Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                        </ul>
+                        <a href="{{ route('topup.index') }}" class="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 text-center">
+                            Purchase Now
+                        </a>
+                    </div>
+
+                    <!-- Package 3: bag-mk2 -->
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-center mb-4">
+                            <div class="flex justify-center mb-4">
+                                <img src="{{ asset('assets/rpg/bag-mk2.png') }}" alt="Bag MK2" class="w-24 h-24 object-contain">
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Bag MK2</h3>
+                            <p class="text-3xl font-bold text-red-500 mb-4">$9.99</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-left">
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>100 Gold Ingot</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>2500 Silver Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                        </ul>
+                        <a href="{{ route('topup.index') }}" class="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 text-center">
+                            Purchase Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Row 2: chest-mk0, chest-mk1, chest-mk2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Package 4: chest-mk0 -->
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-center mb-4">
+                            <div class="flex justify-center mb-4">
+                                <img src="{{ asset('assets/rpg/chest-mk0.png') }}" alt="Chest MK0" class="w-24 h-24 object-contain">
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Chest MK0</h3>
+                            <p class="text-3xl font-bold text-red-500 mb-4">$19.99</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-left">
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>200 Gold Ingot</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>+ 20 Gold Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>+ 5000 Silver Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                        </ul>
+                        <a href="{{ route('topup.index') }}" class="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 text-center">
+                            Purchase Now
+                        </a>
+                    </div>
+
+                    <!-- Package 5: chest-mk1 -->
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-center mb-4">
+                            <div class="flex justify-center mb-4">
+                                <img src="{{ asset('assets/rpg/chest-mk1.png') }}" alt="Chest MK1" class="w-24 h-24 object-contain">
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Chest MK1</h3>
+                            <p class="text-3xl font-bold text-red-500 mb-4">$29.99</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-left">
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>300 Gold Ingot</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>+ 30 Gold Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>7500 Silver Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                        </ul>
+                        <a href="{{ route('topup.index') }}" class="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 text-center">
+                            Purchase Now
+                        </a>
+                    </div>
+
+                    <!-- Package 6: chest-mk2 -->
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20 hover:border-red-500/50 hover:shadow-red-900/30 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-center mb-4">
+                            <div class="flex justify-center mb-4">
+                                <img src="{{ asset('assets/rpg/chest-mk2.png') }}" alt="Chest MK2" class="w-24 h-24 object-contain">
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Chest MK2</h3>
+                            <p class="text-3xl font-bold text-red-500 mb-4">$49.99</p>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-left">
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>500 Gold Ingot</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>+ 50 Gold Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>15000 Silver Ingot <span class="text-red-400">(Bonus)</span></span>
+                            </li>
+                        </ul>
+                        <a href="{{ route('topup.index') }}" class="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 text-center">
+                            Purchase Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Packages Link -->
+            <div class="text-center mt-12">
+                <a href="{{ route('topup.index') }}" class="inline-flex items-center gap-2 backdrop-blur-sm bg-black/40 border-2 border-red-500/40 hover:border-red-500/60 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/20 hover:shadow-red-900/40">
+                    View All Packages
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="register" class="py-20 bg-gradient-to-br from-gray-900 via-red-900/20 to-gray-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">
-                Ready to Begin Your <span class="gradient-text">Adventure?</span>
-            </h2>
-            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                Join thousands of players and experience the ultimate Dragon Nest private server. Register now and be part of an epic community!
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50">
-                    Create Account
-                </a>
-                <a href="#download" class="bg-gray-800 hover:bg-gray-700 border-2 border-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105">
-                    Download Client
-                </a>
+    <section id="cta" class="section-animate relative py-16 lg:py-24 rpg-pattern overflow-hidden">
+        <!-- Decorative Dragon Background -->
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-5 pointer-events-none hidden lg:block">
+            <img src="{{ asset('assets/dragon.png') }}" alt="Dragon" class="w-full h-full object-contain floating-dragon">
+        </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="backdrop-blur-xl bg-gradient-to-br from-black/40 via-red-950/30 to-black/40 border-2 border-red-500/40 rounded-2xl p-12 shadow-2xl shadow-red-900/30 relative overflow-hidden">
+                <!-- Glow Effect -->
+                <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-transparent blur-xl opacity-50"></div>
+
+                <div class="relative z-10">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+                        Ready to Begin Your <span class="text-red-500">Adventure?</span>
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                        Join thousands of players in the ultimate Dragon Nest experience. Download now and start your journey today!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#download" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50 hover:shadow-red-900/70">
+                            Download Client
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                        </a>
+                        <a href="#register" class="desktop-auth-link inline-flex items-center justify-center gap-2 backdrop-blur-sm bg-black/40 border-2 border-red-500/40 hover:border-red-500/60 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/20 hover:shadow-red-900/40" data-modal-show="register-modal">
+                            Create Account
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 @endsection
 
 @section('post-js')
-    <style>
-        @keyframes blob {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-        }
-        .animate-blob {
-            animation: blob 7s infinite;
-        }
-        .animation-delay-1000 {
-            animation-delay: 1s;
-        }
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-        .animation-delay-3000 {
-            animation-delay: 3s;
-        }
-        .animation-delay-4000 {
-            animation-delay: 4s;
-        }
-        .animation-delay-500 {
-            animation-delay: 0.5s;
-        }
-        .animation-delay-1500 {
-            animation-delay: 1.5s;
-        }
+    <script>
+        // Background Carousel dengan interval 3 detik
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-bg-slide');
+            let currentSlide = 0;
 
-        /* Floating animations for dragon and player */
-        @keyframes float-dragon {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
+            function nextSlide() {
+                slides[currentSlide].classList.remove('hero-bg-slide-active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('hero-bg-slide-active');
             }
-            25% {
-                transform: translate(20px, -30px) rotate(2deg);
-            }
-            50% {
-                transform: translate(-15px, -20px) rotate(-2deg);
-            }
-            75% {
-                transform: translate(10px, -40px) rotate(1deg);
-            }
-        }
 
-        @keyframes float-player {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(-25px, 20px) rotate(-3deg);
-            }
-            50% {
-                transform: translate(15px, 30px) rotate(3deg);
-            }
-            75% {
-                transform: translate(-10px, 15px) rotate(-1deg);
-            }
-        }
-
-        .floating-dragon {
-            animation: float-dragon 8s ease-in-out infinite;
-        }
-
-        .floating-player {
-            animation: float-player 10s ease-in-out infinite;
-        }
-
-        /* Enhanced red glow for logo */
-        .glow-red {
-            filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.6)) drop-shadow(0 0 40px rgba(220, 38, 38, 0.3));
-        }
-    </style>
+            // Set interval 3 detik (3000ms)
+            setInterval(nextSlide, 3000);
+        });
+    </script>
 @endsection
 
