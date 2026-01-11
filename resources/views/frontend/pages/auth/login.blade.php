@@ -42,7 +42,7 @@
                             </svg>
                         </div>
                         <h2 class="text-3xl font-bold text-white mb-2">Login</h2>
-                        <p class="text-gray-300">Masuk ke akun Reverion Anda</p>
+                        <p class="text-gray-300">Sign in to your Reverion account</p>
                     </div>
 
                     <!-- Success/Error Messages -->
@@ -69,7 +69,7 @@
                         <!-- Email/Username Field -->
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
-                                Email atau Username
+                                Email or Username
                             </label>
                             <input 
                                 type="text" 
@@ -78,7 +78,7 @@
                                 value="{{ old('email') }}"
                                 required
                                 class="w-full px-4 py-3 bg-black/30 border border-red-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                                placeholder="nama@email.com atau username"
+                                placeholder="email@example.com or username"
                             >
                         </div>
 
@@ -105,10 +105,10 @@
                                     name="remember" 
                                     class="w-4 h-4 text-red-600 bg-black/30 border-red-500/30 rounded focus:ring-red-500 focus:ring-2"
                                 >
-                                <span class="ml-2 text-sm text-gray-300">Ingat saya</span>
+                                <span class="ml-2 text-sm text-gray-300">Remember me</span>
                             </label>
                             <a href="#" class="text-sm text-red-400 hover:text-red-300 transition-colors">
-                                Lupa password?
+                                Forgot password?
                             </a>
                         </div>
 
@@ -134,9 +134,9 @@
                     <!-- Register Link -->
                     <div class="mt-6 text-center">
                         <p class="text-gray-300 text-sm">
-                            Belum punya akun? 
+                            Don't have an account? 
                             <a href="{{ route('register') }}" class="text-red-400 hover:text-red-300 font-semibold transition-colors">
-                                Daftar sekarang
+                                Sign up now
                             </a>
                         </p>
                     </div>

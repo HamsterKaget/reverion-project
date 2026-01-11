@@ -112,6 +112,19 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
+        'sqlsrv_dn_member' => [
+            'driver' => 'sqlsrv',
+            'host' => env('DB_DN_MEMBER_HOST', '127.0.0.1'),
+            'port' => env('DB_DN_MEMBER_PORT', '1433'),
+            'database' => env('DB_DN_MEMBER_DATABASE'),
+            'username' => env('DB_DN_MEMBER_USERNAME'),
+            'password' => env('DB_DN_MEMBER_PASSWORD'),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'encrypt' => false,
+            'trust_server_certificate' => true,
+        ],
+
 
     ],
 

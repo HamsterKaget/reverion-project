@@ -16,17 +16,56 @@
                 <a href="{{ route('download.index') }}" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10 {{ request()->routeIs('download.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-hash="download">Download</a>
                 {{-- <a href="#leaderboard" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10" data-hash="leaderboard">Leaderboard</a> --}}
                 <a href="{{ route('topup.index') }}" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10 {{ request()->routeIs('topup.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-route="topup">Top Up</a>
-                <a href="#login" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10 desktop-auth-link" data-modal-show="login-modal" data-hash="login">Login</a>
+                @auth
+                    {{-- User sudah login - tidak tampilkan login link --}}
+                @else
+                    <a href="#login" class="nav-link text-gray-300 hover:text-red-400 px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 hover:bg-red-500/10 desktop-auth-link" data-modal-show="login-modal" data-hash="login">Login</a>
+                @endauth
             </div>
 
-            <!-- Register Button -->
+            <!-- Register/Profile Button -->
             <div class="hidden md:block">
-                <a href="#register" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-2.5 rounded-full text-base font-semibold transition-all duration-200 shadow-lg shadow-red-500/30 flex items-center space-x-1 group desktop-auth-link" data-modal-show="register-modal">
-                    <span>Register</span>
-                    <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                </a>
+                @auth
+                    <!-- Profile Dropdown -->
+                    <div class="relative" data-dropdown-toggle="profile-dropdown">
+                        <button type="button" class="flex items-center space-x-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-5 py-2.5 rounded-full text-base font-semibold transition-all duration-200 shadow-lg shadow-red-500/30">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                            <span>{{ Auth::user()->username }}</span>
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 backdrop-blur-xl bg-gradient-to-br from-black/90 via-red-950/80 to-black/90 border border-red-500/30 rounded-xl shadow-2xl shadow-red-900/30 overflow-hidden z-50">
+                            <div class="py-2">
+                                <a href="{{ route('profile.index') }}" class="flex items-center space-x-2 px-4 py-2.5 text-gray-300 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <span>Profile</span>
+                                </a>
+                                <form action="{{ route('logout') }}" method="POST" class="border-t border-red-500/20 logout-form">
+                                    @csrf
+                                    <button type="submit" class="w-full flex items-center space-x-2 px-4 py-2.5 text-gray-300 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                        </svg>
+                                        <span>Logout</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <a href="#register" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-2.5 rounded-full text-base font-semibold transition-all duration-200 shadow-lg shadow-red-500/30 flex items-center space-x-1 group desktop-auth-link" data-modal-show="register-modal">
+                        <span>Register</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
+                @endauth
             </div>
 
             <!-- Mobile menu button -->
@@ -61,8 +100,18 @@
                 <a href="{{ route('download.index') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 {{ request()->routeIs('download.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-drawer-hide="mobile-menu" data-hash="download">Download</a>
                 {{-- <a href="#leaderboard" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu" data-hash="leaderboard">Leaderboard</a> --}}
                 <a href="{{ route('topup.index') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 {{ request()->routeIs('topup.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-drawer-hide="mobile-menu" data-route="topup">Top Up</a>
-                <a href="{{ route('login') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu">Login</a>
-                <a href="{{ route('register') }}" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 text-center shadow-lg shadow-red-500/30 mt-4" data-drawer-hide="mobile-menu">Register</a>
+                @auth
+                    <a href="{{ route('profile.index') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 {{ request()->routeIs('profile.*') ? 'text-red-400 bg-red-500/10' : '' }}" data-drawer-hide="mobile-menu">Profile</a>
+                    <form action="{{ route('logout') }}" method="POST" class="mt-4 logout-form">
+                        @csrf
+                        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 text-center shadow-lg shadow-red-500/30">
+                            Logout
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="nav-link text-gray-300 hover:text-red-400 hover:bg-red-500/10 px-5 py-3.5 rounded-full text-lg font-semibold transition-all duration-200" data-drawer-hide="mobile-menu">Login</a>
+                    <a href="{{ route('register') }}" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-7 py-3.5 rounded-full text-lg font-semibold transition-all duration-200 text-center shadow-lg shadow-red-500/30 mt-4" data-drawer-hide="mobile-menu">Register</a>
+                @endauth
             </div>
         </div>
     </div>
@@ -104,6 +153,92 @@
                     }
                 }
                 // On mobile, let the link work normally (navigate to page)
+            });
+        });
+
+        // Handle profile dropdown toggle
+        const dropdownToggle = document.querySelector('[data-dropdown-toggle="profile-dropdown"]');
+        const dropdownMenu = document.getElementById('profile-dropdown');
+        
+        if (dropdownToggle && dropdownMenu) {
+            dropdownToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Handle logout forms with AJAX
+        document.querySelectorAll('.logout-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Logging out...';
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || formData.get('_token')
+                    }
+                })
+                .then(response => {
+                    if (response.ok && response.redirected) {
+                        // Success - redirect
+                        if (window.showNotification) {
+                            window.showNotification('You have been successfully logged out.', 'success');
+                            setTimeout(() => {
+                                window.location.href = response.url;
+                            }, 1500);
+                        } else {
+                            window.location.href = response.url;
+                        }
+                        return;
+                    }
+                    return response.json().then(data => {
+                        if (response.ok && data.success) {
+                            // Show success notification before redirect
+                            if (window.showNotification && data.message) {
+                                window.showNotification(data.message, 'success');
+                                setTimeout(() => {
+                                    if (data.redirect) {
+                                        window.location.href = data.redirect;
+                                    } else {
+                                        window.location.href = '/';
+                                    }
+                                }, 1500);
+                            } else {
+                                if (data.redirect) {
+                                    window.location.href = data.redirect;
+                                } else {
+                                    window.location.href = '/';
+                                }
+                            }
+                        } else {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalText;
+                        }
+                    });
+                })
+                .catch(error => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    // Fallback to normal form submit
+                    this.submit();
+                });
             });
         });
     });
