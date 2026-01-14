@@ -566,25 +566,22 @@
             }
             return response.json().then(data => {
                 if (response.ok && data.success) {
-                    // Show success notification before redirect
-                    if (window.showNotification && data.message) {
-                        window.showNotification(data.message, 'success');
-                        // Wait a bit for notification to show, then redirect
-                        setTimeout(() => {
-                            if (data.redirect) {
-                                window.location.href = data.redirect;
-                            } else {
-                                window.location.href = '/';
-                            }
-                        }, 1500);
-                    } else {
-                        // Redirect immediately if notification not available
+                    // Show success with SweetAlert2
+                    const title = form.id === 'login-form' ? 'Login Successful!' : 'Registration Successful!';
+                    Swal.fire({
+                        icon: 'success',
+                        title: title,
+                        text: data.message || 'Operation completed successfully',
+                        confirmButtonColor: '#dc2626',
+                        timer: 2000,
+                        timerProgressBar: true,
+                    }).then(() => {
                         if (data.redirect) {
                             window.location.href = data.redirect;
                         } else {
                             window.location.href = '/';
                         }
-                    }
+                    });
                 } else if (data.errors) {
                     // Show errors in modal
                     if (errorDiv && errorList) {
@@ -699,25 +696,22 @@
             }
             return response.json().then(data => {
                 if (response.ok && data.success) {
-                    // Show success notification before redirect
-                    if (window.showNotification && data.message) {
-                        window.showNotification(data.message, 'success');
-                        // Wait a bit for notification to show, then redirect
-                        setTimeout(() => {
-                            if (data.redirect) {
-                                window.location.href = data.redirect;
-                            } else {
-                                window.location.href = '/';
-                            }
-                        }, 1500);
-                    } else {
-                        // Redirect immediately if notification not available
+                    // Show success with SweetAlert2
+                    const title = form.id === 'login-form' ? 'Login Successful!' : 'Registration Successful!';
+                    Swal.fire({
+                        icon: 'success',
+                        title: title,
+                        text: data.message || 'Operation completed successfully',
+                        confirmButtonColor: '#dc2626',
+                        timer: 2000,
+                        timerProgressBar: true,
+                    }).then(() => {
                         if (data.redirect) {
                             window.location.href = data.redirect;
                         } else {
                             window.location.href = '/';
                         }
-                    }
+                    });
                 } else if (data.errors) {
                     // Show errors in modal
                     if (errorDiv && errorList) {

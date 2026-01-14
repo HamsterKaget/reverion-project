@@ -58,109 +58,11 @@
                             </div>
                         </div>
 
-                        <!-- Packages Grid - Simple cards with price and cash -->
+                        <!-- Packages Grid - Loaded from API -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="package-grid">
-                            <!-- Package 1: 1K -->
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="1k"
-                                 data-price-idr="1000"
-                                 data-price-usd="0.07"
-                                 data-cash="1K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 1.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 1K Cash </p>
+                            <div class="col-span-full text-center py-8">
+                                <p class="text-gray-400">Loading packages...</p>
                             </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="2k"
-                                 data-price-idr="2000"
-                                 data-price-usd="0.15"
-                                 data-cash="2K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 2.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 2K Cash </p>
-                            </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="5k"
-                                 data-price-idr="5000"
-                                 data-price-usd="0.35"
-                                 data-cash="1K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 5.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 5K Cash </p>
-                            </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="10k"
-                                 data-price-idr="10000"
-                                 data-price-usd="0.70"
-                                 data-cash="10K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 10.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 10K Cash </p>
-                            </div>
-
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="25k"
-                                 data-price-idr="25000"
-                                 data-price-usd="1.75"
-                                 data-cash="25K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 25.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 25K Cash </p>
-                            </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="50k"
-                                 data-price-idr="50000"
-                                 data-price-usd="3.50"
-                                 data-cash="50K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 50.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 50K Cash </p>
-                            </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="75k"
-                                 data-price-idr="75000"
-                                 data-price-usd="5.25"
-                                 data-cash="75K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 75.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 75K Cash </p>
-                            </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="100k"
-                                 data-price-idr="100000"
-                                 data-price-usd="7.00"
-                                 data-cash="100K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 100.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 100K Cash </p>
-                            </div>
-
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="250k"
-                                 data-price-idr="250000"
-                                 data-price-usd="17.50"
-                                 data-cash="250K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 250.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 250K Cash </p>
-                            </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="500k"
-                                 data-price-idr="500000"
-                                 data-price-usd="35.00"
-                                 data-cash="500K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 500.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 500K Cash </p>
-                            </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="1000k"
-                                 data-price-idr="1000000"
-                                 data-price-usd="70.00"
-                                 data-cash="1000K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 1.000.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 1000K Cash </p>
-                            </div>
-                            <div class="package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center"
-                                 data-package="2000k"
-                                 data-price-idr="2000000"
-                                 data-price-usd="140.00"
-                                 data-cash="2000K">
-                                <p class="text-xl font-bold text-white mb-2" data-price-display="idr">Rp 2.000.000</p>
-                                <p class="text-sm font-semibold text-gray-300"> <span class="text-[10px]">🪙</span> 2000K Cash </p>
-                            </div>
-
-
                         </div>
                     </div>
 
@@ -209,15 +111,16 @@
                     <!-- Section 4: Enter Promo/Referral Code -->
                     <div class="backdrop-blur-xl bg-gradient-to-br from-red-950/40 via-red-900/30 to-red-950/40 border border-red-500/30 rounded-xl p-6 shadow-xl shadow-red-900/20">
                         <h3 class="text-2xl font-bold text-white mb-6">
-                            <span class="text-red-500">4</span> Have a Promo Code?
+                            <span class="text-red-500">4</span> Have a Promo Code or Referral Code?
                         </h3>
 
                         <div class="flex gap-3">
-                            <input type="text" id="promo_code" name="promo_code" class="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-500/50 focus:ring-2 focus:ring-red-500/20 transition-all" placeholder="Enter promo code if available">
+                            <input type="text" id="promo_code" name="promo_code" class="flex-1 px-4 py-3 bg-gray-800/50 border border-gray-600/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-500/50 focus:ring-2 focus:ring-red-500/20 transition-all" placeholder="Enter promo code or referral code">
                             <button type="button" id="apply-promo-btn" class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg shadow-red-900/50">
-                                Apply Promo
+                                Apply
                             </button>
                         </div>
+                        <div id="promo-result" class="mt-2 text-sm hidden"></div>
                     </div>
 
                     <!-- Section 5: Available Payment Methods -->
@@ -293,6 +196,16 @@
                         <!-- History items will be loaded here from cookies or API -->
                         <p class="text-gray-400 text-center py-8">No transaction history found</p>
                     </div>
+                    <!-- Pagination -->
+                    <div id="history-pagination" class="mt-6 justify-center items-center gap-2 hidden">
+                        <button id="prev-page-btn" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                            Previous
+                        </button>
+                        <span id="page-info" class="text-gray-300 px-4"></span>
+                        <button id="next-page-btn" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                            Next
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -302,6 +215,9 @@
 @section('post-js')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Check if user is logged in (from Laravel)
+    const isLoggedIn = @json(Auth::check());
+
     // Detect user country and set default currency
     let currentCurrency = 'IDR'; // Default to IDR
     const userCountry = getUserCountry();
@@ -312,6 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('currency-toggle').checked = true;
     }
 
+    // Load packages from API
+    loadPackages();
+
     // Load saved transaction data from cookies
     loadTransactionFromCookies();
 
@@ -319,30 +238,47 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const targetTab = this.dataset.tab;
-
+    function switchTab(targetTab) {
             // Update button states
             tabButtons.forEach(b => {
                 b.classList.remove('active', 'border-red-500', 'text-white');
                 b.classList.add('text-gray-400');
             });
-            this.classList.add('active', 'border-red-500', 'text-white');
-            this.classList.remove('text-gray-400');
+
+        // Activate target button
+        const targetButton = document.querySelector(`[data-tab="${targetTab}"]`);
+        if (targetButton) {
+            targetButton.classList.add('active', 'border-red-500', 'text-white');
+            targetButton.classList.remove('text-gray-400');
+        }
 
             // Update content visibility
             tabContents.forEach(content => {
                 content.classList.add('hidden');
             });
-            document.getElementById(targetTab + '-tab').classList.remove('hidden');
+        const targetContent = document.getElementById(targetTab + '-tab');
+        if (targetContent) {
+            targetContent.classList.remove('hidden');
+        }
 
             // Load history if switching to history tab
             if (targetTab === 'history') {
                 loadHistory();
             }
+    }
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            switchTab(this.dataset.tab);
         });
     });
+
+    // Check URL parameter for tab (e.g., ?tab=history)
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam === 'history') {
+        switchTab('history');
+    }
 
     // Currency toggle
     const currencyToggle = document.getElementById('currency-toggle');
@@ -352,13 +288,59 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Package selection
-    const packageCards = document.querySelectorAll('.package-card');
     let selectedPackage = null;
+    let packages = [];
 
-    packageCards.forEach(card => {
+    // Load packages from API
+    function loadPackages() {
+        fetch('{{ route("topup.packages") }}')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.packages) {
+                    packages = data.packages;
+                    renderPackages();
+                } else {
+                    document.getElementById('package-grid').innerHTML =
+                        '<div class="col-span-full text-center py-8"><p class="text-red-400">Failed to load packages</p></div>';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading packages:', error);
+                document.getElementById('package-grid').innerHTML =
+                    '<div class="col-span-full text-center py-8"><p class="text-red-400">Error loading packages</p></div>';
+            });
+    }
+
+    // Render packages
+    function renderPackages() {
+        const grid = document.getElementById('package-grid');
+        grid.innerHTML = '';
+
+        packages.forEach(pkg => {
+            const priceIdr = pkg.discount_price_idr || pkg.price_idr;
+            const priceUsd = pkg.price_discount_usd || pkg.price_usd;
+
+            const card = document.createElement('div');
+            card.className = 'package-card backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-gray-700/30 to-gray-800/50 border border-gray-600/30 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:border-red-500/50 text-center';
+            card.dataset.planId = pkg.id;
+            card.dataset.priceIdr = priceIdr;
+            card.dataset.priceUsd = priceUsd;
+            card.dataset.amount = pkg.amount;
+
+            const priceDisplay = currentCurrency === 'IDR'
+                ? 'Rp ' + formatNumber(priceIdr)
+                : '$' + parseFloat(priceUsd).toFixed(2);
+
+            card.innerHTML = `
+                <p class="text-xl font-bold text-white mb-2" data-price-display>${priceDisplay}</p>
+                <p class="text-sm font-semibold text-gray-300">
+                    <span class="text-[10px]">🪙</span> ${pkg.amount} ${pkg.item}
+                </p>
+            `;
+
         card.addEventListener('click', function() {
             // Remove selected state from all cards
-            packageCards.forEach(c => {
+                document.querySelectorAll('.package-card').forEach(c => {
                 c.classList.remove('border-red-500', 'bg-red-950/40');
                 c.classList.add('border-gray-600/30', 'bg-gray-800/50');
             });
@@ -368,18 +350,23 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('border-red-500', 'bg-red-950/40');
 
             selectedPackage = {
-                package: this.dataset.package,
+                    plan_id: parseInt(this.dataset.planId),
                 priceIdr: parseFloat(this.dataset.priceIdr),
                 priceUsd: parseFloat(this.dataset.priceUsd),
-                cash: this.dataset.cash,
+                    amount: parseFloat(this.dataset.amount),
                 currency: currentCurrency
             };
         });
+
+            grid.appendChild(card);
     });
+
+        updatePackagePrices();
+    }
 
     // Update package prices based on currency
     function updatePackagePrices() {
-        packageCards.forEach(card => {
+        document.querySelectorAll('.package-card').forEach(card => {
             const priceDisplay = card.querySelector('[data-price-display]');
             if (currentCurrency === 'IDR') {
                 const price = parseFloat(card.dataset.priceIdr);
@@ -484,33 +471,96 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Payment methods are now display-only, selection happens in Midtrans modal
 
-    // Save transaction to cookies
-    function saveTransactionToCookies(transactionData) {
-        const transactions = getTransactionsFromCookies();
-        transactions.push({
-            ...transactionData,
-            timestamp: new Date().toISOString()
-        });
-        // Keep only last 10 transactions
-        if (transactions.length > 10) {
-            transactions.shift();
-        }
-        document.cookie = `topup_transactions=${JSON.stringify(transactions)}; path=/; max-age=${60 * 60 * 24 * 30}`; // 30 days
-    }
+    // Apply promo code button
+    const applyPromoBtn = document.getElementById('apply-promo-btn');
+    const promoCodeInput = document.getElementById('promo_code');
+    const promoResult = document.getElementById('promo-result');
+    let appliedCoupon = null;
+    let appliedAffiliator = null;
 
-    // Get transactions from cookies
-    function getTransactionsFromCookies() {
-        const cookies = document.cookie.split(';');
-        const transactionCookie = cookies.find(c => c.trim().startsWith('topup_transactions='));
-        if (transactionCookie) {
-            try {
-                return JSON.parse(decodeURIComponent(transactionCookie.split('=')[1]));
-            } catch (e) {
-                return [];
-            }
+    applyPromoBtn.addEventListener('click', function() {
+        const code = promoCodeInput.value.trim();
+        if (!code) {
+            promoResult.className = 'mt-2 text-sm text-red-400';
+            promoResult.textContent = 'Please enter a code';
+            promoResult.classList.remove('hidden');
+            return;
         }
-        return [];
-    }
+
+        if (!selectedPackage) {
+            promoResult.className = 'mt-2 text-sm text-red-400';
+            promoResult.textContent = 'Please select a package first';
+            promoResult.classList.remove('hidden');
+            return;
+        }
+
+        applyPromoBtn.disabled = true;
+        applyPromoBtn.textContent = 'Checking...';
+        promoResult.classList.add('hidden');
+
+        // Try coupon first
+        fetch('{{ route("topup.validate-coupon") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                code: code,
+                price: currentCurrency === 'IDR' ? selectedPackage.priceIdr : selectedPackage.priceUsd
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                appliedCoupon = data.coupon;
+                appliedAffiliator = null;
+                promoResult.className = 'mt-2 text-sm text-green-400';
+                promoResult.textContent = `✓ Coupon applied! Discount: ${data.discount_type === 'percentage' ? data.discount_amount + '%' : formatNumber(data.discount)}`;
+                promoResult.classList.remove('hidden');
+            } else {
+                // Try affiliator
+                return fetch('{{ route("topup.validate-affiliator") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ code: code })
+                });
+            }
+        })
+        .then(response => {
+            if (response) {
+                return response.json();
+            }
+            return null;
+        })
+        .then(data => {
+            if (data && data.success) {
+                appliedAffiliator = data.affiliator;
+                appliedCoupon = null;
+                promoResult.className = 'mt-2 text-sm text-green-400';
+                promoResult.textContent = '✓ Referral code applied! You will get 10% bonus.';
+                promoResult.classList.remove('hidden');
+            } else if (!appliedCoupon) {
+                promoResult.className = 'mt-2 text-sm text-red-400';
+                promoResult.textContent = '✗ Invalid code';
+                promoResult.classList.remove('hidden');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            promoResult.className = 'mt-2 text-sm text-red-400';
+            promoResult.textContent = 'An error occurred. Please try again.';
+            promoResult.classList.remove('hidden');
+        })
+        .finally(() => {
+            applyPromoBtn.disabled = false;
+            applyPromoBtn.textContent = 'Apply';
+        });
+    });
+
 
     // Load transaction from cookies (for form restoration)
     function loadTransactionFromCookies() {
@@ -545,149 +595,253 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
     }
 
-    // Load history
-    function loadHistory() {
+    // Save transaction to cookies (for non-logged in users)
+    function saveTransactionToCookies(transactionData) {
         const transactions = getTransactionsFromCookies();
+        transactions.push({
+            ...transactionData,
+            timestamp: new Date().toISOString()
+        });
+        // Keep only last 20 transactions
+        if (transactions.length > 20) {
+            transactions.shift();
+        }
+        document.cookie = `topup_transactions=${JSON.stringify(transactions)}; path=/; max-age=${60 * 60 * 24 * 30}`; // 30 days
+    }
+
+    // Get transactions from cookies
+    function getTransactionsFromCookies() {
+        const cookies = document.cookie.split(';');
+        const transactionCookie = cookies.find(c => c.trim().startsWith('topup_transactions='));
+        if (transactionCookie) {
+            try {
+                return JSON.parse(decodeURIComponent(transactionCookie.split('=')[1]));
+            } catch (e) {
+                return [];
+            }
+        }
+        return [];
+    }
+
+    // Global variable untuk pagination dan isAffiliator
+    let currentHistoryPage = 1;
+    let historyPagination = null;
+    let isUserAffiliator = false;
+
+    // Render transaction item
+    function renderTransactionItem(transaction) {
+        const date = transaction.created_at
+            ? new Date(transaction.created_at).toLocaleString()
+            : new Date(transaction.timestamp).toLocaleString();
+            const price = transaction.currency === 'IDR'
+            ? 'Rp ' + formatNumber(transaction.price || transaction.final_price || 0)
+            : '$' + (transaction.price || transaction.final_price || 0).toFixed(2);
+            const status = transaction.status || 'pending';
+        const isPending = status === 'pending';
+        const isSettled = ['settlement', 'capture'].includes(status);
+        const isCancel = status === 'cancel';
+        const planName = transaction.plan_name || `${transaction.amount || 0} Cash`;
+        const amount = transaction.amount || 0;
+        // Cek apakah ini transaksi affiliator bonus (komisi)
+        const isAffiliateBonus = transaction.is_affiliate_bonus === true ||
+                                  (transaction.commission_amount > 0 && (transaction.price === 0 || transaction.final_price === 0));
+        const orderId = transaction.order_id || '';
+        const commissionAmount = transaction.commission_amount || 0;
+
+            return `
+                <div class="p-4 bg-gray-800/30 rounded-lg border border-gray-600/20">
+                    <div class="flex justify-between items-center">
+                    <div class="flex-1">
+                        <p class="text-white font-semibold">
+                            ${isAffiliateBonus ? '🎁 ' : ''}${planName} - ${amount} Cash
+                            ${isAffiliateBonus ? '<span class="text-xs text-green-400 ml-2">(Affiliate Commission)</span>' : ''}
+                        </p>
+                            <p class="text-sm text-gray-400">${date}</p>
+                        ${orderId ? `<p class="text-xs text-gray-500 mt-1">Order ID: ${orderId}</p>` : ''}
+                        ${transaction.bonus_amount > 0 && !isAffiliateBonus ? `<p class="text-xs text-green-400 mt-1">Bonus: ${transaction.bonus_amount} Cash</p>` : ''}
+                        ${commissionAmount > 0 && isUserAffiliator ? `<p class="text-xs text-blue-400 mt-1">Commission: ${commissionAmount} Cash</p>` : ''}
+                        </div>
+                        <div class="text-right flex items-center gap-4">
+                            <div>
+                            ${isAffiliateBonus ? `
+                                <p class="text-white font-semibold text-green-400">+${commissionAmount} Cash</p>
+                                <p class="text-sm text-green-400">Commission</p>
+                            ` : `
+                                <p class="text-white font-semibold">${price}</p>
+                                <p class="text-sm ${isPending ? 'text-yellow-400' : isSettled ? 'text-green-400' : isCancel ? 'text-red-400' : 'text-gray-400'}">
+                                    ${status.charAt(0).toUpperCase() + status.slice(1)}
+                                </p>
+                            `}
+                            </div>
+                        ${isPending && !isAffiliateBonus ? `
+                            <div class="flex gap-2">
+                                <button onclick="payPendingTransaction('${orderId}')" class="px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg shadow-red-900/50">
+                                    Pay
+                                </button>
+                                <button onclick="cancelTransaction('${orderId}')" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm font-semibold transition-all duration-300">
+                                    Cancel
+                                </button>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    // Load history from database or cookies
+    function loadHistory(page = 1) {
         const historyList = document.getElementById('history-list');
+        const paginationDiv = document.getElementById('history-pagination');
+        historyList.innerHTML = '<p class="text-gray-400 text-center py-8">Loading...</p>';
+        paginationDiv.classList.add('hidden');
+
+        currentHistoryPage = page;
+
+        // If user is logged in, always load from database
+        if (isLoggedIn) {
+            console.log('User is logged in, loading from database...');
+            fetch('{{ route("topup.history") }}?page=' + page)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('History API response:', data);
+                    if (data.success) {
+                        // Set isUserAffiliator dari response
+                        isUserAffiliator = data.is_affiliator || false;
+
+                        if (data.transactions && data.transactions.length > 0) {
+                            historyList.innerHTML = data.transactions.map(renderTransactionItem).join('');
+
+                            // Setup pagination
+                            if (data.pagination) {
+                                historyPagination = data.pagination;
+                                setupPagination(data.pagination);
+                            }
+                        } else {
+                            // No transactions found in database, show empty message
+                            historyList.innerHTML = '<p class="text-gray-400 text-center py-8">No transaction history found</p>';
+                        }
+                    } else {
+                        historyList.innerHTML = '<p class="text-gray-400 text-center py-8">No transaction history found</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading history from database:', error);
+                    // Fallback to cookies on error
+                    loadHistoryFromCookies();
+                });
+            return;
+        }
+
+        // If user is not logged in, try to load from database using email/username if provided
+        const email = document.getElementById('email')?.value || '';
+        const username = document.getElementById('username')?.value || '';
+
+        if (email || username) {
+            console.log('User not logged in but has email/username, loading from database...');
+            const params = new URLSearchParams();
+            if (email) params.append('email', email);
+            if (username) params.append('username', username);
+            params.append('page', page);
+
+            fetch('{{ route("topup.history") }}' + (params.toString() ? '?' + params.toString() : ''))
+        .then(response => response.json())
+        .then(data => {
+                    console.log('History API response:', data);
+                    if (data.success) {
+                        // Set isUserAffiliator dari response (false untuk non-logged in)
+                        isUserAffiliator = false;
+
+                        if (data.transactions && data.transactions.length > 0) {
+                            historyList.innerHTML = data.transactions.map(renderTransactionItem).join('');
+
+                            // Setup pagination
+                            if (data.pagination) {
+                                historyPagination = data.pagination;
+                                setupPagination(data.pagination);
+                            }
+                        } else {
+                            // Fallback to cookies if no database results
+                            loadHistoryFromCookies();
+                        }
+                    } else {
+                        loadHistoryFromCookies();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading history from database:', error);
+                    // Fallback to cookies on error
+                    loadHistoryFromCookies();
+                });
+        } else {
+            // No email/username and not logged in, load from cookies
+            console.log('User not logged in and no email/username, loading from cookies...');
+            loadHistoryFromCookies();
+        }
+    }
+
+    // Setup pagination UI
+    function setupPagination(pagination) {
+        const paginationDiv = document.getElementById('history-pagination');
+        const prevBtn = document.getElementById('prev-page-btn');
+        const nextBtn = document.getElementById('next-page-btn');
+        const pageInfo = document.getElementById('page-info');
+
+        if (pagination.total <= pagination.per_page) {
+            paginationDiv.classList.add('hidden');
+            paginationDiv.classList.remove('flex');
+            return;
+        }
+
+        paginationDiv.classList.remove('hidden');
+        paginationDiv.classList.add('flex');
+
+        pageInfo.textContent = `Page ${pagination.current_page} of ${pagination.last_page}`;
+
+        prevBtn.disabled = pagination.current_page === 1;
+        nextBtn.disabled = pagination.current_page === pagination.last_page;
+
+        prevBtn.onclick = () => {
+            if (pagination.current_page > 1) {
+                loadHistory(pagination.current_page - 1);
+            }
+        };
+
+        nextBtn.onclick = () => {
+            if (pagination.current_page < pagination.last_page) {
+                loadHistory(pagination.current_page + 1);
+            }
+        };
+    }
+
+    // Load history from cookies
+    function loadHistoryFromCookies() {
+        const historyList = document.getElementById('history-list');
+        const paginationDiv = document.getElementById('history-pagination');
+        const transactions = getTransactionsFromCookies();
+
+        // Hide pagination for cookies (no pagination for cookies)
+        paginationDiv.classList.add('hidden');
+        paginationDiv.classList.remove('flex');
+
+        // Set isUserAffiliator to false for non-logged in users
+        isUserAffiliator = false;
 
         if (transactions.length === 0) {
             historyList.innerHTML = '<p class="text-gray-400 text-center py-8">No transaction history found</p>';
             return;
         }
 
-        historyList.innerHTML = transactions.reverse().map((transaction, index) => {
-            const date = new Date(transaction.timestamp).toLocaleString();
-            const price = transaction.currency === 'IDR'
-                ? 'Rp ' + formatNumber(transaction.price)
-                : '$' + transaction.price.toFixed(2);
-            const status = transaction.status || 'pending';
-            const isPending = status.toLowerCase() === 'pending';
-
-            return `
-                <div class="p-4 bg-gray-800/30 rounded-lg border border-gray-600/20">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <p class="text-white font-semibold">${transaction.cash} Reverion Cash</p>
-                            <p class="text-sm text-gray-400">${date}</p>
-                            ${transaction.order_id ? `<p class="text-xs text-gray-500 mt-1">Order ID: ${transaction.order_id}</p>` : ''}
-                        </div>
-                        <div class="text-right flex items-center gap-4">
-                            <div>
-                                <p class="text-white font-semibold">${price}</p>
-                                <p class="text-sm ${isPending ? 'text-yellow-400' : 'text-gray-400'}">${status.charAt(0).toUpperCase() + status.slice(1)}</p>
-                            </div>
-                            ${isPending ? `
-                                <button onclick="payPendingTransaction(${index})" class="px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg shadow-red-900/50">
-                                    Pay
-                                </button>
-                            ` : ''}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }).join('');
-    }
-
-    // Pay pending transaction from history
-    window.payPendingTransaction = function(index) {
-        const transactions = getTransactionsFromCookies();
-        // Reverse to get latest first, then get by index
-        const reversedTransactions = [...transactions].reverse();
-        const transaction = reversedTransactions[index];
-
-        if (!transaction) {
-            alert('Transaction not found');
-            return;
-        }
-
-        // Create transaction data for payment
-        const transactionData = {
-            package: transaction.package,
-            cash: transaction.cash,
-            price: transaction.price,
-            currency: transaction.currency,
-            username: transaction.username,
-            email: transaction.email || '',
-            promo_code: transaction.promo_code || '',
-            status: 'pending'
-        };
-
-        // Create snap payment
-        fetch('{{ route("topup.create-snap") }}', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}'
-            },
-            body: JSON.stringify(transactionData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success && data.snap_token) {
-                // Update transaction with new order_id if provided
-                if (data.order_id) {
-                    transaction.order_id = data.order_id;
-                    transaction.timestamp = new Date().toISOString();
-                    const allTransactions = getTransactionsFromCookies();
-                    const transactionIndex = allTransactions.findIndex(t =>
-                        t.timestamp === transaction.timestamp ||
-                        (t.order_id && t.order_id === transaction.order_id)
-                    );
-                    if (transactionIndex !== -1) {
-                        allTransactions[transactionIndex] = transaction;
-                    } else {
-                        allTransactions.push(transaction);
-                    }
-                    // Keep only last 10
-                    if (allTransactions.length > 10) {
-                        allTransactions.shift();
-                    }
-                    document.cookie = `topup_transactions=${JSON.stringify(allTransactions)}; path=/; max-age=${60 * 60 * 24 * 30}`;
-                }
-
-                // Open Midtrans snap
-                snap.pay(data.snap_token, {
-                    onSuccess: function(result) {
-                        console.log('Payment success:', result);
-                        // Update transaction status
-                        updateTransactionStatus(data.order_id || transaction.order_id, 'success');
-                        alert('Payment successful!');
-                        loadHistory();
-                    },
-                    onPending: function(result) {
-                        console.log('Payment pending:', result);
-                        // Update transaction status
-                        updateTransactionStatus(data.order_id || transaction.order_id, 'pending');
-                        alert('Payment pending. Please complete your payment.');
-                        loadHistory();
-                    },
-                    onError: function(result) {
-                        console.log('Payment error:', result);
-                        alert('Payment failed. Please try again.');
-                    },
-                    onClose: function() {
-                        console.log('Payment popup closed');
-                    }
-                });
-            } else {
-                alert(data.message || 'Failed to create payment. Please try again.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
+        // Sort by timestamp (newest first)
+        const sortedTransactions = transactions.sort((a, b) => {
+            const timeA = a.timestamp || a.created_at || 0;
+            const timeB = b.timestamp || b.created_at || 0;
+            return new Date(timeB) - new Date(timeA);
         });
-    };
 
-    // Update transaction status
-    function updateTransactionStatus(orderId, status) {
-        const transactions = getTransactionsFromCookies();
-        const transaction = transactions.find(t => t.order_id === orderId);
-        if (transaction) {
-            transaction.status = status;
-            document.cookie = `topup_transactions=${JSON.stringify(transactions)}; path=/; max-age=${60 * 60 * 24 * 30}`;
-        }
+        historyList.innerHTML = sortedTransactions.map(renderTransactionItem).join('');
     }
+
 
     // Form submission
     document.getElementById('topup-form').addEventListener('submit', function(e) {
@@ -695,12 +849,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate required fields
         if (!selectedPackage) {
-            alert('Please select a package');
+            Swal.fire({
+                icon: 'warning',
+                title: 'Package Required',
+                text: 'Please select a package',
+                confirmButtonColor: '#dc2626',
+            });
             return;
         }
 
         if (!usernameInput.value.trim()) {
-            alert('Please enter your username');
+            Swal.fire({
+                icon: 'warning',
+                title: 'Username Required',
+                text: 'Please enter your username',
+                confirmButtonColor: '#dc2626',
+            });
             usernameInput.focus();
             return;
         }
@@ -708,21 +872,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Check if username is valid
         const usernameValid = usernameInput.classList.contains('border-green-500');
         if (!usernameValid) {
-            alert('Please verify your username is correct');
+            Swal.fire({
+                icon: 'warning',
+                title: 'Username Verification',
+                text: 'Please verify your username is correct',
+                confirmButtonColor: '#dc2626',
+            });
             usernameInput.focus();
             return;
         }
 
         // Prepare transaction data
         const transactionData = {
-            package: selectedPackage.package,
-            cash: selectedPackage.cash,
-            price: currentCurrency === 'IDR' ? selectedPackage.priceIdr : selectedPackage.priceUsd,
+            plan_id: selectedPackage.plan_id,
             currency: currentCurrency,
-            username: usernameInput.value,
-            email: document.getElementById('email').value,
-            promo_code: document.getElementById('promo_code').value,
-            status: 'pending'
+            username: usernameInput.value.trim(),
+            email: document.getElementById('email').value.trim() || null,
+            promo_code: promoCodeInput.value.trim() || null,
         };
 
         // Save form data to cookies
@@ -745,27 +911,61 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success && data.snap_token) {
-                // Add order_id to transaction data
-                transactionData.order_id = data.order_id;
-                // Save transaction to cookies
-                saveTransactionToCookies(transactionData);
+                // Save transaction to cookies (for non-logged in users)
+                const transactionToSave = {
+                    order_id: data.order_id,
+                    plan_id: selectedPackage.plan_id,
+                    plan_name: packages.find(p => p.id === selectedPackage.plan_id)?.name || `${selectedPackage.amount} Cash`,
+                    amount: selectedPackage.amount,
+                    price: currentCurrency === 'IDR' ? selectedPackage.priceIdr : selectedPackage.priceUsd,
+                    final_price: currentCurrency === 'IDR' ? selectedPackage.priceIdr : selectedPackage.priceUsd,
+                    currency: currentCurrency,
+                    username: usernameInput.value.trim(),
+                    email: document.getElementById('email').value.trim() || null,
+                    status: 'pending',
+                    bonus_amount: appliedAffiliator ? selectedPackage.amount * 0.1 : 0,
+                };
+                saveTransactionToCookies(transactionToSave);
 
                 // Open Midtrans snap
                 snap.pay(data.snap_token, {
                     onSuccess: function(result) {
                         console.log('Payment success:', result);
-                        alert('Payment successful!');
-                        // Reload or redirect
+                        // Update transaction status in cookies
+                        updateTransactionInCookies(data.order_id, 'settlement');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Payment Successful!',
+                            text: 'Your top up has been processed successfully.',
+                            confirmButtonColor: '#dc2626',
+                        }).then(() => {
+                            // Reload to show updated history
                         window.location.reload();
+                        });
                     },
                     onPending: function(result) {
                         console.log('Payment pending:', result);
-                        alert('Payment pending. Please complete your payment.');
+                        // Update transaction status in cookies
+                        updateTransactionInCookies(data.order_id, 'pending');
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'Payment Pending',
+                            text: 'Please complete your payment.',
+                            confirmButtonColor: '#dc2626',
+                        }).then(() => {
                         window.location.reload();
+                        });
                     },
                     onError: function(result) {
                         console.log('Payment error:', result);
-                        alert('Payment failed. Please try again.');
+                        // Update transaction status in cookies
+                        updateTransactionInCookies(data.order_id, 'deny');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Payment Failed',
+                            text: 'Please try again.',
+                            confirmButtonColor: '#dc2626',
+                        });
                         submitBtn.disabled = false;
                         submitBtn.textContent = 'Complete Purchase';
                     },
@@ -776,21 +976,207 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             } else {
-                alert(data.message || 'Failed to create payment. Please try again.');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Payment Failed',
+                    text: data.message || 'Failed to create payment. Please try again.',
+                    confirmButtonColor: '#dc2626',
+                });
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Complete Purchase';
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred. Please try again.');
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred. Please try again.',
+                confirmButtonColor: '#dc2626',
+            });
             submitBtn.disabled = false;
             submitBtn.textContent = 'Complete Purchase';
         });
     });
 
-    // Initial price update
-    updatePackagePrices();
+    // Update transaction status in cookies
+    function updateTransactionInCookies(orderId, status) {
+        const transactions = getTransactionsFromCookies();
+        const transaction = transactions.find(t => t.order_id === orderId);
+        if (transaction) {
+            transaction.status = status;
+            document.cookie = `topup_transactions=${JSON.stringify(transactions)}; path=/; max-age=${60 * 60 * 24 * 30}`;
+        }
+    }
+
+    // Pay pending transaction
+    window.payPendingTransaction = function(orderId) {
+        Swal.fire({
+            title: 'Processing...',
+            text: 'Please wait',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        const email = document.getElementById('email')?.value || '';
+        const username = document.getElementById('username')?.value || '';
+
+        fetch('{{ route("topup.pay-pending") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                order_id: orderId,
+                email: email,
+                username: username
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            Swal.close();
+            if (data.success && data.snap_token) {
+                // Open Midtrans snap
+                snap.pay(data.snap_token, {
+                    onSuccess: function(result) {
+                        console.log('Payment success:', result);
+                        updateTransactionInCookies(orderId, 'settlement');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Payment Successful!',
+                            text: 'Your top up has been processed successfully.',
+                            confirmButtonColor: '#dc2626',
+                        }).then(() => {
+                            loadHistory();
+                        });
+                    },
+                    onPending: function(result) {
+                        console.log('Payment pending:', result);
+                        updateTransactionInCookies(orderId, 'pending');
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'Payment Pending',
+                            text: 'Please complete your payment.',
+                            confirmButtonColor: '#dc2626',
+                        }).then(() => {
+                            loadHistory();
+                        });
+                    },
+                    onError: function(result) {
+                        console.log('Payment error:', result);
+                        updateTransactionInCookies(orderId, 'deny');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Payment Failed',
+                            text: 'Please try again.',
+                            confirmButtonColor: '#dc2626',
+                        });
+                        loadHistory();
+                    },
+                    onClose: function() {
+                        console.log('Payment popup closed');
+                        loadHistory();
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: data.message || 'Failed to process payment',
+                    confirmButtonColor: '#dc2626',
+                });
+            }
+        })
+        .catch(error => {
+            Swal.close();
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred. Please try again.',
+                confirmButtonColor: '#dc2626',
+            });
+        });
+    };
+
+    // Cancel transaction
+    window.cancelTransaction = function(orderId) {
+        Swal.fire({
+            title: 'Cancel Transaction?',
+            text: 'Are you sure you want to cancel this transaction?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#dc2626',
+            cancelButtonColor: '#6b7280',
+            confirmButtonText: 'Yes, cancel it',
+            cancelButtonText: 'No, keep it'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Processing...',
+                    text: 'Please wait',
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                const email = document.getElementById('email')?.value || '';
+                const username = document.getElementById('username')?.value || '';
+
+                fetch('{{ route("topup.cancel") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        order_id: orderId,
+                        email: email,
+                        username: username
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    Swal.close();
+                    if (data.success) {
+                        // Update status in cookies
+                        updateTransactionInCookies(orderId, 'cancel');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Cancelled!',
+                            text: 'Transaction has been cancelled successfully.',
+                            confirmButtonColor: '#dc2626',
+                        }).then(() => {
+                            loadHistory();
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: data.message || 'Failed to cancel transaction',
+                            confirmButtonColor: '#dc2626',
+                        });
+                    }
+                })
+                .catch(error => {
+                    Swal.close();
+                    console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'An error occurred. Please try again.',
+                        confirmButtonColor: '#dc2626',
+                    });
+                });
+            }
+        });
+    };
+
+    // Initial setup - packages will be loaded and rendered
 });
 </script>
 @endsection

@@ -147,7 +147,7 @@
                         <a href="#" class="block w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-900/50">
                             Download for Windows
                         </a>
-                        <p class="text-sm text-gray-500">File size: ~2.5 GB</p>
+                        <p class="text-sm text-gray-500">File size: ~6.2 GB</p>
                     </div>
                 </div>
             </div>
