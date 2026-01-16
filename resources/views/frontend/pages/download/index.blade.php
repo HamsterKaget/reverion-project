@@ -13,7 +13,7 @@
             <img src="{{ asset('assets/dragon.png') }}" alt="Dragon" class="w-full h-full object-contain floating-dragon">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 gap-12 items-center">
                 <!-- Left: About Server -->
                 <div class="space-y-6 relative">
                     <!-- Decorative Element -->
@@ -63,43 +63,6 @@
                     </div>
                 </div>
 
-                <!-- Right: Download Stats -->
-                <div class="relative">
-                    <div class="backdrop-blur-xl bg-gradient-to-br from-black/40 via-red-950/30 to-black/40 border-2 border-red-500/40 rounded-2xl p-8 shadow-2xl shadow-red-900/30 relative overflow-hidden">
-                        <!-- Decorative Background Image -->
-                        <div class="absolute inset-0 opacity-5 pointer-events-none">
-                            <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion" class="w-full h-full object-cover">
-                        </div>
-                        <!-- Glow Effect -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent pointer-events-none"></div>
-                        <div class="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-transparent blur-xl opacity-50"></div>
-
-                        <div class="relative z-10">
-                            <div class="text-center mb-6">
-                                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-red-600 to-red-700 mb-4 shadow-lg shadow-red-900/50">
-                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-3xl font-bold text-white mb-2">Total Downloads</h3>
-                                <p class="text-gray-300">Join thousands of players worldwide</p>
-                            </div>
-
-                            <div class="text-center">
-                                <div class="mb-4">
-                                    <div class="text-5xl sm:text-6xl font-bold text-red-500 mb-2" id="download-counter">0</div>
-                                    <p class="text-gray-300 text-sm">Downloads and counting...</p>
-                                </div>
-                                <div class="flex items-center justify-center gap-2 text-gray-400 text-sm">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                    </svg>
-                                    <span>Live counter updates every second</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -209,10 +172,10 @@
     <section id="features" class="section-animate relative py-16 lg:py-24 bg-gray-900/50 overflow-hidden">
         <!-- Decorative Background Elements -->
         <div class="absolute left-0 top-0 w-64 h-64 opacity-5 pointer-events-none hidden lg:block">
-            <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion" class="w-full h-full object-contain">
+            <img src="{{ asset('assets/reverion_logo.png') }}" alt="Reverion" class="w-full h-full object-contain">
         </div>
         <div class="absolute right-0 bottom-0 w-64 h-64 opacity-5 pointer-events-none hidden lg:block">
-            <img src="{{ asset('assets/reverion_blue.jpeg') }}" alt="Reverion" class="w-full h-full object-contain">
+            <img src="{{ asset('assets/reverion_logo.png') }}" alt="Reverion" class="w-full h-full object-contain">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
@@ -363,88 +326,6 @@
 
 @section('post-js')
     <script>
-        // Download Counter - Load from API
-        let currentCount = 1300; // Default starting count
-        const counterElement = document.getElementById('download-counter');
-
-        // Load initial count from API
-        function loadDownloadCount() {
-            fetch('{{ route("download.count") }}')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        currentCount = data.count;
-                        animateCounterTo(currentCount);
-                    } else {
-                        // Fallback to default
-                        animateCounterTo(1300);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading download count:', error);
-                    // Fallback to default
-                    animateCounterTo(1300);
-                });
-        }
-
-        // Animate counter to target value
-        function animateCounterTo(targetCount) {
-            const startCount = 0;
-            const duration = 2000; // 2 seconds
-            const steps = 50;
-            const stepDuration = duration / steps;
-            const stepIncrement = (targetCount - startCount) / steps;
-            let animatingCount = startCount;
-
-            function updateCounter() {
-                animatingCount += stepIncrement;
-                if (animatingCount < targetCount) {
-                    counterElement.textContent = Math.floor(animatingCount).toLocaleString();
-                    setTimeout(updateCounter, stepDuration);
-                } else {
-                    counterElement.textContent = Math.floor(targetCount).toLocaleString();
-                    currentCount = targetCount;
-                }
-            }
-
-            updateCounter();
-        }
-
-        // Increment counter when download button is clicked
-        function incrementDownloadCount() {
-            fetch('{{ route("download.increment") }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Animate to new count
-                    animateCounterTo(data.count);
-                    currentCount = data.count;
-                }
-            })
-            .catch(error => {
-                console.error('Error incrementing download count:', error);
-            });
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadDownloadCount();
-
-            // Add click event listeners to download buttons
-            const downloadButtons = document.querySelectorAll('#download-primary-link, #download-alternative-link');
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    incrementDownloadCount();
-                });
-            });
-        });
-
         // OS Detection Function - Always return Windows
         function detectOS() {
             return 'windows';

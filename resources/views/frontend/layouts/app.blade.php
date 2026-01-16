@@ -6,6 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="ehK0ITEoL3DBQLUCbpW-o-jrornbjKLxlboPBocXPBA" />
+
+    <!-- Default SEO Meta Tags -->
+    @php
+        $defaultTitle = 'Reverion - Best Dragon Nest Private Server 2026';
+        $defaultDescription = 'Join Reverion Dragon Nest private server with enhanced features, balanced PvP, custom rates, and exclusive content. Download the client and start your epic adventure today!';
+        $defaultKeywords = 'Dragon Nest, Dragon Nest private server, Reverion, private server, MMORPG, online game, Dragon Nest download, Dragon Nest top up, gaming community';
+        $siteUrl = config('app.url');
+        $currentUrl = url()->current();
+    @endphp
+
+    <title>@yield('title', $defaultTitle)</title>
+    <meta name="description" content="@yield('description', $defaultDescription)">
+    <meta name="keywords" content="@yield('keywords', $defaultKeywords)">
+    <meta name="author" content="Reverion Dragon Nest">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ $currentUrl }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $currentUrl }}">
+    <meta property="og:title" content="@yield('og:title', $defaultTitle)">
+    <meta property="og:description" content="@yield('og:description', $defaultDescription)">
+    <meta property="og:image" content="@yield('og:image', asset('assets/reverion_logo.png'))">
+    <meta property="og:site_name" content="Reverion Dragon Nest">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ $currentUrl }}">
+    <meta name="twitter:title" content="@yield('twitter:title', $defaultTitle)">
+    <meta name="twitter:description" content="@yield('twitter:description', $defaultDescription)">
+    <meta name="twitter:image" content="@yield('twitter:image', asset('assets/reverion_logo.png'))">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/reverion_logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/reverion_logo.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/reverion_logo.png') }}">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#DC2626">
+
     @yield('pre-css')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -24,7 +67,7 @@
         <div class="relative backdrop-blur-xl bg-gradient-to-br from-black/90 via-red-950/80 to-black/90 border-2 border-red-500/40 rounded-2xl shadow-2xl shadow-red-900/30 overflow-hidden min-w-[320px] max-w-md">
             <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent pointer-events-none"></div>
             <div class="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-transparent blur-xl opacity-50"></div>
-            
+
             <div class="relative z-10 p-5 flex items-center gap-4">
                 <div id="notification-icon" class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center shadow-lg shadow-red-900/50">
                     <svg id="notification-icon-svg" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

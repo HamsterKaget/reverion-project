@@ -5,7 +5,7 @@
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3">
-                    <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion Logo" class="w-10 h-10 object-contain">
+                    <img src="{{ asset('assets/reverion_logo.png') }}" alt="Reverion Logo" class="w-10 h-10 object-contain">
                     <span class="text-2xl font-semibold text-white">Reverion</span>
                 </a>
             </div>
@@ -86,7 +86,7 @@
         <div class="flex flex-col h-full">
             <div class="flex items-center justify-between mb-8 pt-5">
                 <div class="flex items-center space-x-3">
-                    <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion Logo" class="w-12 h-12 object-contain">
+                    <img src="{{ asset('assets/reverion_logo.png') }}" alt="Reverion Logo" class="w-12 h-12 object-contain">
                     <span class="text-2xl font-semibold text-white">Reverion</span>
                 </div>
                 <button type="button" class="text-gray-300 hover:text-red-400 hover:bg-red-500/10 rounded-full p-2.5 transition-all" data-drawer-hide="mobile-menu" aria-controls="mobile-menu">
@@ -159,7 +159,7 @@
         // Handle profile dropdown toggle
         const dropdownToggle = document.querySelector('[data-dropdown-toggle="profile-dropdown"]');
         const dropdownMenu = document.getElementById('profile-dropdown');
-        
+
         if (dropdownToggle && dropdownMenu) {
             dropdownToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -178,14 +178,14 @@
         document.querySelectorAll('.logout-form').forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
+
                 const formData = new FormData(this);
                 const submitBtn = this.querySelector('button[type="submit"]');
                 const originalText = submitBtn.textContent;
-                
+
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Logging out...';
-                
+
                 fetch(this.action, {
                     method: 'POST',
                     body: formData,

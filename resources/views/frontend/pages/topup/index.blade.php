@@ -6,7 +6,12 @@
 @endsection
 
 @section('pre-js')
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('services.midtrans.client_key') }}"></script>
+    @php
+        $midtransUrl = config('services.midtrans.is_production', false)
+            ? 'https://app.midtrans.com/snap/snap.js'
+            : 'https://app.sandbox.midtrans.com/snap/snap.js';
+    @endphp
+    <script src="{{ $midtransUrl }}" data-client-key="{{ config('services.midtrans.client_key') }}"></script>
 @endsection
 
 @section('body')

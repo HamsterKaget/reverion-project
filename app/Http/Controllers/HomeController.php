@@ -37,12 +37,22 @@ class HomeController extends Controller
      */
     public function createDonationSnap(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'amount' => 'required|numeric|min:1000', // Minimum 1000 rupiah
-            'email' => 'nullable|email',
-        ]);
+        try {
+            // Validate request - Laravel will automatically return JSON for AJAX/JSON requests
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'description' => 'nullable|string',
+                'amount' => 'required|numeric', // No min/max limit
+                'email' => 'nullable|email',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Ensure JSON response for validation errors
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation failed',
+                'errors' => $e->errors()
+            ], 422);
+        }
 
         $amount = (float) $request->amount;
         
@@ -89,22 +99,25 @@ class HomeController extends Controller
                 'error' => route('home') . '?status=error',
             ],
             'enabled_payments' => [
-                'credit_card',
                 'gopay',
                 'dana',
                 'ovo',
-                'qris',
                 'shopeepay',
                 'linkaja',
-                'bank_transfer',
-                'echannel',
-                'permata_va',
+                'qris',
+                'credit_card',
                 'bca_va',
                 'bni_va',
                 'bri_va',
-                'cimb_va',
                 'mandiri_va',
+                'permata_va',
+                'cimb_va',
+                'echannel',
                 'other_va',
+            ],
+            // GoPay specific settings
+            'gopay' => [
+                'enable_callback' => true,
             ],
         ];
 

@@ -13,7 +13,7 @@
                 <!-- Brand Section -->
                 <div class="lg:col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion Logo" class="w-12 h-12 object-contain">
+                        <img src="{{ asset('assets/reverion_logo.png') }}" alt="Reverion Logo" class="w-12 h-12 object-contain">
                         <span class="text-2xl font-semibold text-white">Reverion</span>
                     </div>
                     <p class="text-gray-300 text-sm lg:text-base mb-6 leading-relaxed max-w-md">

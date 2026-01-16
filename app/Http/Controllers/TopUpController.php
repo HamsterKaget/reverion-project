@@ -301,22 +301,25 @@ class TopUpController extends Controller
             ],
             // Enable all payment methods - user will choose in Midtrans modal
             'enabled_payments' => [
-                'credit_card',
                 'gopay',
                 'dana',
                 'ovo',
-                'qris',
                 'shopeepay',
                 'linkaja',
-                'bank_transfer',
-                'echannel',
-                'permata_va',
+                'qris',
+                'credit_card',
                 'bca_va',
                 'bni_va',
                 'bri_va',
-                'cimb_va',
                 'mandiri_va',
+                'permata_va',
+                'cimb_va',
+                'echannel',
                 'other_va',
+            ],
+            // GoPay specific settings
+            'gopay' => [
+                'enable_callback' => true,
             ],
         ];
 
@@ -646,22 +649,25 @@ class TopUpController extends Controller
                 'error' => route('topup.index') . '?status=error',
             ],
             'enabled_payments' => [
-                'credit_card',
                 'gopay',
                 'dana',
                 'ovo',
-                'qris',
                 'shopeepay',
                 'linkaja',
-                'bank_transfer',
-                'echannel',
-                'permata_va',
+                'qris',
+                'credit_card',
                 'bca_va',
                 'bni_va',
                 'bri_va',
-                'cimb_va',
                 'mandiri_va',
+                'permata_va',
+                'cimb_va',
+                'echannel',
                 'other_va',
+            ],
+            // GoPay specific settings
+            'gopay' => [
+                'enable_callback' => true,
             ],
         ];
 

@@ -155,7 +155,7 @@
                     <div class="backdrop-blur-xl bg-gradient-to-br from-black/40 via-red-950/30 to-black/40 border-2 border-red-500/40 rounded-2xl p-8 shadow-2xl shadow-red-900/30 hover:border-red-500/60 hover:shadow-red-900/50 transition-all duration-300 relative overflow-hidden">
                         <!-- Decorative Background Image -->
                         <div class="absolute inset-0 opacity-5 pointer-events-none">
-                            <img src="{{ asset('assets/reverion_red.jpeg') }}" alt="Reverion" class="w-full h-full object-cover">
+                            <img src="{{ asset('assets/reverion_logo.png') }}" alt="Reverion" class="w-full h-full object-cover">
                         </div>
                         <!-- Glow Effect -->
                         <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent pointer-events-none"></div>
@@ -217,7 +217,7 @@
                 <div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
                     <!-- Right: Discord Embed -->
                     <div class="flex justify-center lg:justify-start">
-                        <iframe src="https://discord.com/widget?id=4ctVxdctHe&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" class="rounded-lg w-full max-w-[350px]"></iframe>
+                        <iframe src="https://discord.com/widget?id=1441364744530559059&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" class="rounded-lg w-full max-w-[350px]"></iframe>
                     </div>
 
                     <!-- Left: Title and Description -->
@@ -410,7 +410,7 @@
                                 <label for="donation-amount" class="block text-sm font-medium text-gray-300 mb-2">Jumlah Donasi (Rupiah) <span class="text-red-400">*</span></label>
                                 <div class="relative">
                                     <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">Rp</span>
-                                    <input type="number" id="donation-amount" name="amount" required min="1000" step="1000" class="w-full pl-12 pr-4 py-3 bg-black/30 border border-red-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-sm" placeholder="10000">
+                                    <input type="number" id="donation-amount" name="amount" required class="w-full pl-12 pr-4 py-3 bg-black/30 border border-red-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-sm" placeholder="10000">
                                 </div>
                                 <p class="mt-2 text-xs text-gray-400">Minimum donasi: Rp 1.000</p>
                             </div>
@@ -431,7 +431,12 @@
 @endsection
 
 @section('pre-js')
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('services.midtrans.client_key') }}"></script>
+    @php
+        $midtransUrl = config('services.midtrans.is_production', false)
+            ? 'https://app.midtrans.com/snap/snap.js'
+            : 'https://app.sandbox.midtrans.com/snap/snap.js';
+    @endphp
+    <script src="{{ $midtransUrl }}" data-client-key="{{ config('services.midtrans.client_key') }}"></script>
 @endsection
 
 @section('post-js')
@@ -717,8 +722,8 @@
                         return;
                     }
 
-                    if (!formData.amount || formData.amount < 1000) {
-                        showFormError(errorDiv, errorList, 'Jumlah donasi minimum Rp 1.000');
+                    if (!formData.amount || formData.amount <= 0) {
+                        showFormError(errorDiv, errorList, 'Jumlah donasi harus lebih dari 0');
                         return;
                     }
 
@@ -732,11 +737,22 @@
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
+                            'Accept': 'application/json',
                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '{{ csrf_token() }}'
                         },
                         body: JSON.stringify(formData)
                     })
-                    .then(response => response.json())
+                    .then(async response => {
+                        // Check if response is JSON
+                        const contentType = response.headers.get('content-type');
+                        if (contentType && contentType.includes('application/json')) {
+                            return response.json();
+                        } else {
+                            // If not JSON, try to parse as text first
+                            const text = await response.text();
+                            throw new Error('Server returned non-JSON response. Status: ' + response.status);
+                        }
+                    })
                     .then(data => {
                         if (data.success && data.snap_token) {
                             // Close modal
@@ -800,13 +816,25 @@
                                 }
                             });
                         } else {
-                            showFormError(errorDiv, errorList, data.message || 'Gagal membuat pembayaran. Silakan coba lagi.');
+                            // Handle validation errors
+                            if (data.errors) {
+                                const errorMessages = [];
+                                Object.keys(data.errors).forEach(key => {
+                                    data.errors[key].forEach(msg => errorMessages.push(msg));
+                                });
+                                showFormError(errorDiv, errorList, errorMessages.join('<br>'));
+                            } else {
+                                showFormError(errorDiv, errorList, data.message || 'Gagal membuat pembayaran. Silakan coba lagi.');
+                            }
                             submitBtn.disabled = false;
                             submitBtn.textContent = originalText;
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
+                        showFormError(errorDiv, errorList, 'Terjadi kesalahan. Silakan coba lagi atau pastikan jumlah donasi minimum Rp 1.000.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
                         showFormError(errorDiv, errorList, 'Terjadi kesalahan. Silakan coba lagi.');
                         submitBtn.disabled = false;
                         submitBtn.textContent = originalText;
