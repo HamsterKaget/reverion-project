@@ -110,7 +110,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'encrypt' => env('DB_ENCRYPT', 'yes'),
-            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'true'),
         ],
         'sqlsrv_dn_member' => [
             'driver' => 'sqlsrv',
@@ -124,7 +124,7 @@ return [
             'encrypt' => false,
             'trust_server_certificate' => true,
             'encrypt' => env('DB_ENCRYPT', 'yes'),
-            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'true'),
         ],
 
 
