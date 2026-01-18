@@ -266,7 +266,7 @@
     </section>
 
     <!-- Donation Section -->
-    <section id="donation" class="section-animate relative py-16 lg:py-24 bg-gray-900/50 overflow-hidden">
+    {{-- <section id="donation" class="section-animate relative py-16 lg:py-24 bg-gray-900/50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Running Text -->
             <div class="mb-8 overflow-hidden">
@@ -323,7 +323,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- CTA Section -->
     <section id="cta" class="section-animate relative py-16 lg:py-24 rpg-pattern overflow-hidden">

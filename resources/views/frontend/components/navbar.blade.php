@@ -174,6 +174,56 @@
             });
         }
 
+        // Handle mobile drawer menu toggle
+        const drawerToggle = document.querySelector('[data-drawer-toggle="mobile-menu"]');
+        const drawerTarget = document.getElementById('mobile-menu');
+        const drawerHideButtons = document.querySelectorAll('[data-drawer-hide="mobile-menu"]');
+
+        if (drawerToggle && drawerTarget) {
+            // Toggle drawer when hamburger button is clicked
+            drawerToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                drawerTarget.classList.toggle('-translate-x-full');
+                
+                // Prevent body scroll when drawer is open
+                if (!drawerTarget.classList.contains('-translate-x-full')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Close drawer when close button is clicked
+            drawerHideButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    drawerTarget.classList.add('-translate-x-full');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close drawer when clicking outside (on backdrop)
+            document.addEventListener('click', function(e) {
+                if (!drawerTarget.classList.contains('-translate-x-full')) {
+                    // Check if click is outside the drawer
+                    if (!drawerTarget.contains(e.target) && !drawerToggle.contains(e.target)) {
+                        drawerTarget.classList.add('-translate-x-full');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+
+            // Close drawer on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !drawerTarget.classList.contains('-translate-x-full')) {
+                    drawerTarget.classList.add('-translate-x-full');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
         // Handle logout forms with AJAX
         document.querySelectorAll('.logout-form').forEach(form => {
             form.addEventListener('submit', function(e) {
