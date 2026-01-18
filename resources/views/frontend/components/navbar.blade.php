@@ -178,6 +178,20 @@
         const drawerToggle = document.querySelector('[data-drawer-toggle="mobile-menu"]');
         const drawerTarget = document.getElementById('mobile-menu');
         const drawerHideButtons = document.querySelectorAll('[data-drawer-hide="mobile-menu"]');
+        
+        // Handle navigation links in mobile menu (login, register, etc.)
+        // These should navigate normally without being prevented
+        const mobileNavLinks = drawerTarget?.querySelectorAll('a[href]:not([href^="#"]):not([href="javascript:void(0)"])');
+        if (mobileNavLinks) {
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Close drawer first
+                    drawerTarget.classList.add('-translate-x-full');
+                    document.body.style.overflow = '';
+                    // Let the link navigate normally - don't prevent default
+                }, { capture: true }); // Use capture phase to run before other listeners
+            });
+        }
 
         if (drawerToggle && drawerTarget) {
             // Toggle drawer when hamburger button is clicked
@@ -194,14 +208,31 @@
                 }
             });
 
-            // Close drawer when close button is clicked
+            // Close drawer when close button or link is clicked
             drawerHideButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
+                    // If it's a link that will navigate to a different page (not hash link)
+                    const isNavigationLink = this.tagName === 'A' && 
+                                           this.href && 
+                                           !this.href.includes('#') &&
+                                           this.href !== window.location.href &&
+                                           !this.href.startsWith('javascript:');
+                    
+                    if (isNavigationLink) {
+                        // It's a navigation link - close drawer and let it navigate
+                        // Don't prevent default - let the link navigate normally
+                        drawerTarget.classList.add('-translate-x-full');
+                        document.body.style.overflow = '';
+                        // Explicitly allow navigation - don't prevent default or stop propagation
+                        return true; // Let the link navigate
+                    }
+                    
+                    // For buttons, close buttons, or hash links - prevent default and close drawer
                     e.preventDefault();
                     e.stopPropagation();
                     drawerTarget.classList.add('-translate-x-full');
                     document.body.style.overflow = '';
-                });
+                }, { passive: true }); // Use passive listener for better performance
             });
 
             // Close drawer when clicking outside (on backdrop)
