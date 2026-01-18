@@ -241,16 +241,21 @@
     // Handle modal triggers
     document.addEventListener('DOMContentLoaded', function() {
         // Handle all modal show triggers - this will catch clicks from navbar too
+        // Only prevent navigation on desktop (md and above)
         document.querySelectorAll('[data-modal-show]').forEach(trigger => {
             trigger.addEventListener('click', function(e) {
-                // Only prevent default if not already prevented
-                if (!e.defaultPrevented) {
-                    e.preventDefault();
+                // Only prevent default on desktop (md and above)
+                if (window.innerWidth >= 768) {
+                    // Only prevent default if not already prevented
+                    if (!e.defaultPrevented) {
+                        e.preventDefault();
+                    }
+                    const modalId = this.getAttribute('data-modal-show');
+                    if (modalId) {
+                        window.showModal(modalId);
+                    }
                 }
-                const modalId = this.getAttribute('data-modal-show');
-                if (modalId) {
-                    window.showModal(modalId);
-                }
+                // On mobile, let the link work normally (navigate to page)
             });
         });
 
