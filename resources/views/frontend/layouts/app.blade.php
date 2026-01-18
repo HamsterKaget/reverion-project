@@ -63,7 +63,7 @@
     @include('frontend.components.navbar')
 
     <!-- Custom Notification Toast -->
-    <div id="notification-toast" class="fixed top-20 left-1/2 transform -translate-x-1/2 z-[100] hidden">
+    <div id="notification-toast" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[100] hidden">
         <div class="relative backdrop-blur-xl bg-gradient-to-br from-black/90 via-red-950/80 to-black/90 border-2 border-red-500/40 rounded-2xl shadow-2xl shadow-red-900/30 overflow-hidden min-w-[320px] max-w-md">
             <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent pointer-events-none"></div>
             <div class="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-transparent blur-xl opacity-50"></div>

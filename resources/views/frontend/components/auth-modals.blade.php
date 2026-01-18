@@ -794,12 +794,12 @@
         // Show toast with animation
         toast.classList.remove('hidden');
         toast.style.opacity = '0';
-        toast.style.transform = 'translateX(-50%) translateY(-20px)';
+        toast.style.transform = 'translateX(-50%) translateY(calc(-50% - 20px))';
         
         setTimeout(() => {
             toast.style.transition = 'all 0.3s ease-out';
             toast.style.opacity = '1';
-            toast.style.transform = 'translateX(-50%) translateY(0)';
+            toast.style.transform = 'translateX(-50%) translateY(-50%)';
         }, 10);
         
         // Auto hide after 4 seconds
@@ -823,7 +823,7 @@
         
         toast.style.transition = 'all 0.3s ease-in';
         toast.style.opacity = '0';
-        toast.style.transform = 'translateX(-50%) translateY(-20px)';
+        toast.style.transform = 'translateX(-50%) translateY(calc(-50% - 20px))';
         
         setTimeout(() => {
             toast.classList.add('hidden');
